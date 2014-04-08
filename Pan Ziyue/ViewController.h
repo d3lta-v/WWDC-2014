@@ -12,5 +12,8 @@
 
 @property (strong, nonatomic) IBOutlet UILabel *hiLabel;
 @property (strong, nonatomic) IBOutlet UILabel *ziyueLabel;
+@property (strong, nonatomic) IBOutlet UILabel *welcomeLabel;
+@property (strong, nonatomic) IBOutlet UILabel *slideLabel;
+- (IBAction)tapToBegin:(id)sender;
 
 @end

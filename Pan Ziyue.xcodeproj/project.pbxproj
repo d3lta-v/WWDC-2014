@@ -21,6 +21,7 @@
 		2217255C18F3A9A9005301D7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2217253E18F3A9A9005301D7 /* UIKit.framework */; };
 		2217256418F3A9A9005301D7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2217256218F3A9A9005301D7 /* InfoPlist.strings */; };
 		2217256618F3A9A9005301D7 /* Pan_ZiyueTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2217256518F3A9A9005301D7 /* Pan_ZiyueTests.m */; };
+		2217257118F3BF11005301D7 /* PageContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2217257018F3BF11005301D7 /* PageContentViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,8 @@
 		2217256118F3A9A9005301D7 /* Pan ZiyueTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Pan ZiyueTests-Info.plist"; sourceTree = "<group>"; };
 		2217256318F3A9A9005301D7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		2217256518F3A9A9005301D7 /* Pan_ZiyueTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Pan_ZiyueTests.m; sourceTree = "<group>"; };
+		2217256F18F3BF11005301D7 /* PageContentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PageContentViewController.h; sourceTree = "<group>"; };
+		2217257018F3BF11005301D7 /* PageContentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PageContentViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +120,8 @@
 				2217254C18F3A9A9005301D7 /* Main.storyboard */,
 				2217254F18F3A9A9005301D7 /* ViewController.h */,
 				2217255018F3A9A9005301D7 /* ViewController.m */,
+				2217256F18F3BF11005301D7 /* PageContentViewController.h */,
+				2217257018F3BF11005301D7 /* PageContentViewController.m */,
 				2217255218F3A9A9005301D7 /* Images.xcassets */,
 				2217254118F3A9A9005301D7 /* Supporting Files */,
 			);
@@ -250,6 +255,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2217255118F3A9A9005301D7 /* ViewController.m in Sources */,
+				2217257118F3BF11005301D7 /* PageContentViewController.m in Sources */,
 				2217254B18F3A9A9005301D7 /* AppDelegate.m in Sources */,
 				2217254718F3A9A9005301D7 /* main.m in Sources */,
 			);
@@ -456,6 +462,7 @@
 				2217256B18F3A9A9005301D7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2217256C18F3A9A9005301D7 /* Build configuration list for PBXNativeTarget "Pan ZiyueTests" */ = {
 			isa = XCConfigurationList;
@@ -464,6 +471,7 @@
 				2217256E18F3A9A9005301D7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
