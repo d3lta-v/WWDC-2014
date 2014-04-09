@@ -1,18 +1,18 @@
 //
-//  PageContentViewController.m
+//  NavigationViewController.m
 //  Pan Ziyue
 //
-//  Created by Pan Ziyue on 8/4/14.
+//  Created by Pan Ziyue on 9/4/14.
 //  Copyright (c) 2014 StatiX Industries. All rights reserved.
 //
 
-#import "PageContentViewController.h"
+#import "NavigationViewController.h"
 
-@interface PageContentViewController ()
+@interface NavigationViewController ()
 
 @end
 
-@implementation PageContentViewController
+@implementation NavigationViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -27,12 +27,25 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    [self.view addGestureRecognizer:[[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panGestureRecognized:)]];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)panGestureRecognized:(UIPanGestureRecognizer *)sender
+{
+    // Dismiss keyboard (optional)
+    //
+    [self.view endEditing:YES];
+    [self.frostedViewController.view endEditing:YES];
+    
+    // Present the view controller
+    //
+    [self.frostedViewController panGestureRecognized:sender];
 }
 
 /*

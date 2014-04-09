@@ -21,7 +21,15 @@
 		2217255C18F3A9A9005301D7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2217253E18F3A9A9005301D7 /* UIKit.framework */; };
 		2217256418F3A9A9005301D7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2217256218F3A9A9005301D7 /* InfoPlist.strings */; };
 		2217256618F3A9A9005301D7 /* Pan_ZiyueTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2217256518F3A9A9005301D7 /* Pan_ZiyueTests.m */; };
-		2217257118F3BF11005301D7 /* PageContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2217257018F3BF11005301D7 /* PageContentViewController.m */; };
+		221725D018F4CB41005301D7 /* RECommonFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = 221725C518F4CB41005301D7 /* RECommonFunctions.m */; };
+		221725D118F4CB41005301D7 /* REFrostedContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 221725C718F4CB41005301D7 /* REFrostedContainerViewController.m */; };
+		221725D218F4CB41005301D7 /* REFrostedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 221725C918F4CB41005301D7 /* REFrostedViewController.m */; };
+		221725D318F4CB41005301D7 /* UIImage+REFrostedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 221725CB18F4CB41005301D7 /* UIImage+REFrostedViewController.m */; };
+		221725D418F4CB41005301D7 /* UIView+REFrostedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 221725CD18F4CB41005301D7 /* UIView+REFrostedViewController.m */; };
+		221725D518F4CB41005301D7 /* UIViewController+REFrostedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 221725CF18F4CB41005301D7 /* UIViewController+REFrostedViewController.m */; };
+		221725D818F4D746005301D7 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 221725D718F4D746005301D7 /* RootViewController.m */; };
+		221725DB18F4EFC9005301D7 /* NavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 221725DA18F4EFC9005301D7 /* NavigationViewController.m */; };
+		221725DE18F4F32A005301D7 /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 221725DD18F4F32A005301D7 /* MenuViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,8 +62,24 @@
 		2217256118F3A9A9005301D7 /* Pan ZiyueTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Pan ZiyueTests-Info.plist"; sourceTree = "<group>"; };
 		2217256318F3A9A9005301D7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		2217256518F3A9A9005301D7 /* Pan_ZiyueTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Pan_ZiyueTests.m; sourceTree = "<group>"; };
-		2217256F18F3BF11005301D7 /* PageContentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PageContentViewController.h; sourceTree = "<group>"; };
-		2217257018F3BF11005301D7 /* PageContentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PageContentViewController.m; sourceTree = "<group>"; };
+		221725C418F4CB41005301D7 /* RECommonFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RECommonFunctions.h; sourceTree = "<group>"; };
+		221725C518F4CB41005301D7 /* RECommonFunctions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RECommonFunctions.m; sourceTree = "<group>"; };
+		221725C618F4CB41005301D7 /* REFrostedContainerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REFrostedContainerViewController.h; sourceTree = "<group>"; };
+		221725C718F4CB41005301D7 /* REFrostedContainerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REFrostedContainerViewController.m; sourceTree = "<group>"; };
+		221725C818F4CB41005301D7 /* REFrostedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REFrostedViewController.h; sourceTree = "<group>"; };
+		221725C918F4CB41005301D7 /* REFrostedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REFrostedViewController.m; sourceTree = "<group>"; };
+		221725CA18F4CB41005301D7 /* UIImage+REFrostedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+REFrostedViewController.h"; sourceTree = "<group>"; };
+		221725CB18F4CB41005301D7 /* UIImage+REFrostedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+REFrostedViewController.m"; sourceTree = "<group>"; };
+		221725CC18F4CB41005301D7 /* UIView+REFrostedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+REFrostedViewController.h"; sourceTree = "<group>"; };
+		221725CD18F4CB41005301D7 /* UIView+REFrostedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+REFrostedViewController.m"; sourceTree = "<group>"; };
+		221725CE18F4CB41005301D7 /* UIViewController+REFrostedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+REFrostedViewController.h"; sourceTree = "<group>"; };
+		221725CF18F4CB41005301D7 /* UIViewController+REFrostedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+REFrostedViewController.m"; sourceTree = "<group>"; };
+		221725D618F4D746005301D7 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
+		221725D718F4D746005301D7 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
+		221725D918F4EFC9005301D7 /* NavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavigationViewController.h; sourceTree = "<group>"; };
+		221725DA18F4EFC9005301D7 /* NavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavigationViewController.m; sourceTree = "<group>"; };
+		221725DC18F4F32A005301D7 /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuViewController.h; sourceTree = "<group>"; };
+		221725DD18F4F32A005301D7 /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,13 +139,18 @@
 		2217254018F3A9A9005301D7 /* Pan Ziyue */ = {
 			isa = PBXGroup;
 			children = (
+				221725C318F4CB41005301D7 /* REFrostedViewController */,
 				2217254918F3A9A9005301D7 /* AppDelegate.h */,
 				2217254A18F3A9A9005301D7 /* AppDelegate.m */,
 				2217254C18F3A9A9005301D7 /* Main.storyboard */,
 				2217254F18F3A9A9005301D7 /* ViewController.h */,
 				2217255018F3A9A9005301D7 /* ViewController.m */,
-				2217256F18F3BF11005301D7 /* PageContentViewController.h */,
-				2217257018F3BF11005301D7 /* PageContentViewController.m */,
+				221725D618F4D746005301D7 /* RootViewController.h */,
+				221725D718F4D746005301D7 /* RootViewController.m */,
+				221725D918F4EFC9005301D7 /* NavigationViewController.h */,
+				221725DA18F4EFC9005301D7 /* NavigationViewController.m */,
+				221725DC18F4F32A005301D7 /* MenuViewController.h */,
+				221725DD18F4F32A005301D7 /* MenuViewController.m */,
 				2217255218F3A9A9005301D7 /* Images.xcassets */,
 				2217254118F3A9A9005301D7 /* Supporting Files */,
 			);
@@ -155,6 +184,25 @@
 				2217256218F3A9A9005301D7 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		221725C318F4CB41005301D7 /* REFrostedViewController */ = {
+			isa = PBXGroup;
+			children = (
+				221725C418F4CB41005301D7 /* RECommonFunctions.h */,
+				221725C518F4CB41005301D7 /* RECommonFunctions.m */,
+				221725C618F4CB41005301D7 /* REFrostedContainerViewController.h */,
+				221725C718F4CB41005301D7 /* REFrostedContainerViewController.m */,
+				221725C818F4CB41005301D7 /* REFrostedViewController.h */,
+				221725C918F4CB41005301D7 /* REFrostedViewController.m */,
+				221725CA18F4CB41005301D7 /* UIImage+REFrostedViewController.h */,
+				221725CB18F4CB41005301D7 /* UIImage+REFrostedViewController.m */,
+				221725CC18F4CB41005301D7 /* UIView+REFrostedViewController.h */,
+				221725CD18F4CB41005301D7 /* UIView+REFrostedViewController.m */,
+				221725CE18F4CB41005301D7 /* UIViewController+REFrostedViewController.h */,
+				221725CF18F4CB41005301D7 /* UIViewController+REFrostedViewController.m */,
+			);
+			path = REFrostedViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -254,10 +302,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				221725D518F4CB41005301D7 /* UIViewController+REFrostedViewController.m in Sources */,
+				221725D418F4CB41005301D7 /* UIView+REFrostedViewController.m in Sources */,
+				221725D118F4CB41005301D7 /* REFrostedContainerViewController.m in Sources */,
 				2217255118F3A9A9005301D7 /* ViewController.m in Sources */,
-				2217257118F3BF11005301D7 /* PageContentViewController.m in Sources */,
+				221725D818F4D746005301D7 /* RootViewController.m in Sources */,
+				221725D318F4CB41005301D7 /* UIImage+REFrostedViewController.m in Sources */,
 				2217254B18F3A9A9005301D7 /* AppDelegate.m in Sources */,
+				221725DE18F4F32A005301D7 /* MenuViewController.m in Sources */,
 				2217254718F3A9A9005301D7 /* main.m in Sources */,
+				221725D018F4CB41005301D7 /* RECommonFunctions.m in Sources */,
+				221725D218F4CB41005301D7 /* REFrostedViewController.m in Sources */,
+				221725DB18F4EFC9005301D7 /* NavigationViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -7,9 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "REFrostedViewController.h"
 
 @interface ViewController : UIViewController
-
 @property (strong, nonatomic) IBOutlet UILabel *hiLabel;
 @property (strong, nonatomic) IBOutlet UILabel *ziyueLabel;
 @property (strong, nonatomic) IBOutlet UILabel *welcomeLabel;
