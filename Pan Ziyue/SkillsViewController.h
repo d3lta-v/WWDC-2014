@@ -9,5 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface SkillsViewController : UIViewController
+@property (strong, nonatomic) IBOutletCollection(UILabel) NSArray *words;
+@property (strong, nonatomic) IBOutlet UIButton *menuButton;
+- (IBAction)menuPressed:(id)sender;
 
 @end

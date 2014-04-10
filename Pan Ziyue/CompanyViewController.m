@@ -1,20 +1,19 @@
 //
-//  SkillsViewController.m
+//  CompanyViewController.m
 //  Pan Ziyue
 //
-//  Created by Pan Ziyue on 9/4/14.
+//  Created by Pan Ziyue on 10/4/14.
 //  Copyright (c) 2014 StatiX Industries. All rights reserved.
 //
 
-#import "SkillsViewController.h"
+#import "CompanyViewController.h"
 #import "REFrostedViewController.h"
-#import "CommonMethods.h"
 
-@interface SkillsViewController ()
+@interface CompanyViewController ()
 
 @end
 
-@implementation SkillsViewController
+@implementation CompanyViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {

@@ -7,7 +7,10 @@
 //
 
 #import "AboutMeViewController.h"
+#import "CommonMethods.h" // Common methods header for code snippets that are used often
 #import "REFrostedViewController/REFrostedViewController.h"
+
+#define kAnimationTime 0.75
 
 @interface AboutMeViewController ()
 
@@ -30,7 +33,7 @@
     // Do any additional setup after loading the view.
     
     UIMotionEffectGroup *group = [UIMotionEffectGroup new];
-    group.motionEffects = @[[self getInterpolatingMotionEffect:@"center.x" minMaxValues:-10], [self getInterpolatingMotionEffect:@"center.y" minMaxValues:-10]];
+    group.motionEffects = @[[CommonMethods getInterpolatingMotionEffect:@"center.x" minMaxValues:-10], [CommonMethods getInterpolatingMotionEffect:@"center.y" minMaxValues:-10]];
     for (UILabel *label in self.words) {
         [label addMotionEffect:group];
     }
@@ -40,68 +43,43 @@
     dispatch_once(&onceToken, ^{
         // Animation for the words
         self.iAmLabel.alpha=0;
+        self.menuButton.alpha=0;
         for (UILabel *label in self.words) {
             label.alpha=0;
         }
-        [self labelAnimateEaseIn:self.iAmLabel delegate:self timeTaken:0.75 completion:@selector(animationIAmStopped)];
+        [CommonMethods labelAnimateEaseIn:self.iAmLabel delegate:self timeTaken:kAnimationTime completion:@selector(animationIAmStopped)];
     });
 }
 
 #pragma mark Selectors for animation completion
 -(void)animationIAmStopped
 {
-    [self labelAnimateEaseIn:(UILabel *)[self.words objectAtIndex:0] delegate:self timeTaken:0.85 completion:@selector(animation0Stopped)];
+    [CommonMethods labelAnimateEaseIn:(UILabel *)[self.words objectAtIndex:0] delegate:self timeTaken:kAnimationTime completion:@selector(animation0Stopped)];
 }
 
 -(void)animation0Stopped
 {
-    [self labelAnimateEaseIn:(UILabel *)[self.words objectAtIndex:1] delegate:self timeTaken:0.85 completion:@selector(animation1Stopped)];
+    [CommonMethods labelAnimateEaseIn:(UILabel *)[self.words objectAtIndex:1] delegate:self timeTaken:kAnimationTime completion:@selector(animation1Stopped)];
 }
 
 -(void)animation1Stopped
 {
-    [self labelAnimateEaseIn:(UILabel *)[self.words objectAtIndex:2] delegate:self timeTaken:0.85 completion:@selector(animation2Stopped)];
+    [CommonMethods labelAnimateEaseIn:(UILabel *)[self.words objectAtIndex:2] delegate:self timeTaken:kAnimationTime completion:@selector(animation2Stopped)];
 }
 
 -(void)animation2Stopped
 {
-    [self labelAnimateEaseIn:(UILabel *)[self.words objectAtIndex:3] delegate:self timeTaken:0.85 completion:@selector(animation3Stopped)];
+    [CommonMethods labelAnimateEaseIn:(UILabel *)[self.words objectAtIndex:3] delegate:self timeTaken:kAnimationTime completion:@selector(animation3Stopped)];
 }
 
 -(void)animation3Stopped
 {
-    [self labelAnimateEaseIn:(UILabel *)[self.words objectAtIndex:4] delegate:self timeTaken:0.85 completion:nil];
+    [CommonMethods labelAnimateEaseIn:(UILabel *)[self.words objectAtIndex:4] delegate:self timeTaken:kAnimationTime completion:@selector(animation4Stopped)];
 }
 
-#pragma mark Animation method
--(void)labelAnimateEaseIn:(UILabel *)label delegate:(id)delegate timeTaken:(NSTimeInterval)duration completion:(SEL)selector
+-(void)animation4Stopped
 {
-    [UIView beginAnimations:nil context:NULL];
-    [UIView setAnimationDelegate:delegate];
-    [UIView setAnimationCurve:UIViewAnimationCurveEaseIn];
-    [UIView setAnimationDuration:duration];
-    label.alpha=1;
-    [UIView setAnimationDidStopSelector:selector];
-    [UIView commitAnimations];
-}
-
-#pragma mark Interpolating Motion Effect method
--(UIInterpolatingMotionEffect *)getInterpolatingMotionEffect:(NSString *)type minMaxValues:(NSInteger)minMaxValues
-{
-    UIInterpolatingMotionEffect *motionEffect;
-    if ([type isEqualToString:@"center.y"]) {
-        motionEffect=[[UIInterpolatingMotionEffect alloc] initWithKeyPath:type type:UIInterpolatingMotionEffectTypeTiltAlongVerticalAxis];
-    }
-    else if ([type isEqualToString:@"center.x"]) {
-        motionEffect=[[UIInterpolatingMotionEffect alloc] initWithKeyPath:type type:UIInterpolatingMotionEffectTypeTiltAlongHorizontalAxis];
-    }
-    else
-        return nil; // crash and burn
-    
-    motionEffect.minimumRelativeValue = @((int)minMaxValues);
-    motionEffect.maximumRelativeValue = @(abs((int)minMaxValues));
-    
-    return motionEffect;
+    [CommonMethods labelAnimateEaseIn:(UILabel *)self.menuButton delegate:self timeTaken:kAnimationTime completion:nil];
 }
 
 // Hide status bar
