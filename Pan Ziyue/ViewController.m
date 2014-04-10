@@ -38,7 +38,7 @@
         hiLabel.alpha=0.0f;
         welcomeLabel.alpha=0.0f;
         slideLabel.alpha=0.0f;
-        [self labelAnimateEaseIn:hiLabel delegate:self timeTaken:0.7 completion:@selector(animationDidStop:finished:)];
+        [self labelAnimateEaseIn:hiLabel delegate:self timeTaken:1 completion:@selector(animationDidStop:finished:)];
     });
 }
 
@@ -47,7 +47,7 @@
     return YES;
 }
 
-// Custom methods for parallax effect UIInterpolatingMotionEffect
+// Custom method for parallax effect UIInterpolatingMotionEffect
 -(UIInterpolatingMotionEffect *)getInterpolatingMotionEffect:(NSString *)type minMaxValues:(NSInteger)minMaxValues
 {
     UIInterpolatingMotionEffect *motionEffect;
@@ -73,7 +73,7 @@
 {
     [UIView beginAnimations:nil context:NULL];
     [UIView setAnimationDelegate:delegate];
-    [UIView setAnimationCurve:UIViewAnimationCurveLinear];
+    [UIView setAnimationCurve:UIViewAnimationCurveEaseIn];
     [UIView setAnimationDuration:duration];
     label.alpha=1;
     [UIView setAnimationDidStopSelector:selector];
@@ -82,17 +82,17 @@
 
 - (void)animationDidStop:(CAAnimation *)theAnimation finished:(BOOL)flag // Animate my name
 {
-    [self labelAnimateEaseIn:ziyueLabel delegate:self timeTaken:0.7 completion:@selector(animation2DidStop:finished:)];
+    [self labelAnimateEaseIn:ziyueLabel delegate:self timeTaken:1 completion:@selector(animation2DidStop:finished:)];
 }
 
 -(void)animation2DidStop:(CAAnimation *)anim finished:(BOOL)flag // Animate the 'welcome' text
 {
-    [self labelAnimateEaseIn:welcomeLabel delegate:self timeTaken:0.7 completion:@selector(animation3DidStop:finished:)];
+    [self labelAnimateEaseIn:welcomeLabel delegate:self timeTaken:1 completion:@selector(animation3DidStop:finished:)];
 }
 
 -(void)animation3DidStop:(CAAnimation *)anim finished:(BOOL)flag // animate the 'slide' text
 {
-    [self labelAnimateEaseIn:slideLabel delegate:nil timeTaken:0.5 completion:NULL];
+    [self labelAnimateEaseIn:slideLabel delegate:nil timeTaken:0.75 completion:NULL];
 }
 
 - (void)didReceiveMemoryWarning

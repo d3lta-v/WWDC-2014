@@ -11,6 +11,8 @@
 #import "NavigationViewController.h"
 // Import all other view controllers here
 #import "ViewController.h"
+#import "AboutMeViewController.h"
+#import "SkillsViewController.h"
 
 @interface MenuViewController ()
 
@@ -88,7 +90,7 @@
     view.backgroundColor = [UIColor colorWithRed:167/255.0f green:167/255.0f blue:167/255.0f alpha:0.6f];
     
     UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(10, 8, 0, 0)];
-    label.text = @"Friends Online";
+    label.text = @"My Projects";
     label.font = [UIFont systemFontOfSize:15];
     label.textColor = [UIColor whiteColor];
     label.backgroundColor = [UIColor clearColor];
@@ -114,10 +116,17 @@
     if (indexPath.section == 0 && indexPath.row == 0) {
         ViewController *homeViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"homeController"];
         navigationController.viewControllers = @[homeViewController];
-    } else {
-        // Insert other viewcontrollers here with else if statements
-        /*DEMOSecondViewController *secondViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"secondController"];
-        navigationController.viewControllers = @[secondViewController];*/
+    }
+    else if (indexPath.section == 0 && indexPath.row==1) {
+        AboutMeViewController *aboutMeViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"aboutMeController"];
+        navigationController.viewControllers = @[aboutMeViewController];
+    }
+    else if (indexPath.section == 0 && indexPath.row==2) {
+        SkillsViewController *skillsViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"skillsViewController"];
+        navigationController.viewControllers = @[skillsViewController];
+    }
+    else {
+        
     }
     
     self.frostedViewController.contentViewController = navigationController;
@@ -134,8 +143,8 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    //return 2;
-    return 1;
+    return 2;
+    //return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)sectionIndex
@@ -154,10 +163,10 @@
     }
     
     if (indexPath.section == 0) {
-        NSArray *titles = @[@"Home", @"Who I am", @"My Apps"];
+        NSArray *titles = @[@"Home", @"Who I am", @"Skills & Experience", @"My Company", @"My Apps", @"My Education"];
         cell.textLabel.text = titles[indexPath.row];
     } else {
-        NSArray *titles = @[@"John Appleseed", @"John Doe", @"Test User"];
+        NSArray *titles = @[@"SST Announcer", @"SST Lens", @"HexBT"];
         cell.textLabel.text = titles[indexPath.row];
     }
     

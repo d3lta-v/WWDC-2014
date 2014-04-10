@@ -30,6 +30,8 @@
 		221725D818F4D746005301D7 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 221725D718F4D746005301D7 /* RootViewController.m */; };
 		221725DB18F4EFC9005301D7 /* NavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 221725DA18F4EFC9005301D7 /* NavigationViewController.m */; };
 		221725DE18F4F32A005301D7 /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 221725DD18F4F32A005301D7 /* MenuViewController.m */; };
+		221725E118F4F99A005301D7 /* AboutMeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 221725E018F4F99A005301D7 /* AboutMeViewController.m */; };
+		221725E618F5381F005301D7 /* SkillsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 221725E518F5381F005301D7 /* SkillsViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,6 +82,10 @@
 		221725DA18F4EFC9005301D7 /* NavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavigationViewController.m; sourceTree = "<group>"; };
 		221725DC18F4F32A005301D7 /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuViewController.h; sourceTree = "<group>"; };
 		221725DD18F4F32A005301D7 /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuViewController.m; sourceTree = "<group>"; };
+		221725DF18F4F99A005301D7 /* AboutMeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutMeViewController.h; sourceTree = "<group>"; };
+		221725E018F4F99A005301D7 /* AboutMeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutMeViewController.m; sourceTree = "<group>"; };
+		221725E418F5381F005301D7 /* SkillsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SkillsViewController.h; sourceTree = "<group>"; };
+		221725E518F5381F005301D7 /* SkillsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SkillsViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,18 +145,17 @@
 		2217254018F3A9A9005301D7 /* Pan Ziyue */ = {
 			isa = PBXGroup;
 			children = (
+				221725E318F4F9B4005301D7 /* FrostedSources */,
 				221725C318F4CB41005301D7 /* REFrostedViewController */,
 				2217254918F3A9A9005301D7 /* AppDelegate.h */,
 				2217254A18F3A9A9005301D7 /* AppDelegate.m */,
 				2217254C18F3A9A9005301D7 /* Main.storyboard */,
 				2217254F18F3A9A9005301D7 /* ViewController.h */,
 				2217255018F3A9A9005301D7 /* ViewController.m */,
-				221725D618F4D746005301D7 /* RootViewController.h */,
-				221725D718F4D746005301D7 /* RootViewController.m */,
-				221725D918F4EFC9005301D7 /* NavigationViewController.h */,
-				221725DA18F4EFC9005301D7 /* NavigationViewController.m */,
-				221725DC18F4F32A005301D7 /* MenuViewController.h */,
-				221725DD18F4F32A005301D7 /* MenuViewController.m */,
+				221725DF18F4F99A005301D7 /* AboutMeViewController.h */,
+				221725E018F4F99A005301D7 /* AboutMeViewController.m */,
+				221725E418F5381F005301D7 /* SkillsViewController.h */,
+				221725E518F5381F005301D7 /* SkillsViewController.m */,
 				2217255218F3A9A9005301D7 /* Images.xcassets */,
 				2217254118F3A9A9005301D7 /* Supporting Files */,
 			);
@@ -203,6 +208,19 @@
 				221725CF18F4CB41005301D7 /* UIViewController+REFrostedViewController.m */,
 			);
 			path = REFrostedViewController;
+			sourceTree = "<group>";
+		};
+		221725E318F4F9B4005301D7 /* FrostedSources */ = {
+			isa = PBXGroup;
+			children = (
+				221725D618F4D746005301D7 /* RootViewController.h */,
+				221725D718F4D746005301D7 /* RootViewController.m */,
+				221725D918F4EFC9005301D7 /* NavigationViewController.h */,
+				221725DA18F4EFC9005301D7 /* NavigationViewController.m */,
+				221725DC18F4F32A005301D7 /* MenuViewController.h */,
+				221725DD18F4F32A005301D7 /* MenuViewController.m */,
+			);
+			name = FrostedSources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -308,12 +326,14 @@
 				2217255118F3A9A9005301D7 /* ViewController.m in Sources */,
 				221725D818F4D746005301D7 /* RootViewController.m in Sources */,
 				221725D318F4CB41005301D7 /* UIImage+REFrostedViewController.m in Sources */,
+				221725E618F5381F005301D7 /* SkillsViewController.m in Sources */,
 				2217254B18F3A9A9005301D7 /* AppDelegate.m in Sources */,
 				221725DE18F4F32A005301D7 /* MenuViewController.m in Sources */,
 				2217254718F3A9A9005301D7 /* main.m in Sources */,
 				221725D018F4CB41005301D7 /* RECommonFunctions.m in Sources */,
 				221725D218F4CB41005301D7 /* REFrostedViewController.m in Sources */,
 				221725DB18F4EFC9005301D7 /* NavigationViewController.m in Sources */,
+				221725E118F4F99A005301D7 /* AboutMeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
