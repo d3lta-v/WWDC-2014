@@ -9,8 +9,15 @@
 #import "SkillsViewController.h"
 #import "REFrostedViewController.h"
 #import "CommonMethods.h"
+#import "TLAlertView/TLAlertView.h"
+#import <CoreMotion/CoreMotion.h>
+
+#define kAnimationTime 0.65
 
 @interface SkillsViewController ()
+{
+    CMMotionManager *motionManager;
+}
 
 @end
 
@@ -29,6 +36,97 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        self.menuButton.alpha=0;
+        self.iAmLabel.alpha=0;
+        for (UILabel *label in self.words) {
+            label.alpha=0;
+        }
+        [CommonMethods labelAnimateEaseIn:self.iAmLabel delegate:self timeTaken:kAnimationTime completion:@selector(animationIAmStopped)];
+    });
+}
+
+-(void)animationIAmStopped
+{
+    [CommonMethods labelAnimateEaseIn:self.iAmLabel delegate:self timeTaken:kAnimationTime completion:@selector(animation0Stopped)];
+}
+
+-(void)animation0Stopped
+{
+    [CommonMethods labelAnimateEaseIn:(UILabel *)[self.words objectAtIndex:0] delegate:self timeTaken:kAnimationTime completion:@selector(animation1Stopped)];
+}
+
+-(void)animation1Stopped
+{
+    [CommonMethods labelAnimateEaseIn:(UILabel *)[self.words objectAtIndex:1] delegate:self timeTaken:kAnimationTime completion:@selector(animation2Stopped)];
+}
+
+-(void)animation2Stopped
+{
+    [CommonMethods labelAnimateEaseIn:(UILabel *)[self.words objectAtIndex:2] delegate:self timeTaken:kAnimationTime completion:@selector(animation3Stopped)];
+}
+
+-(void)animation3Stopped
+{
+    [CommonMethods labelAnimateEaseIn:(UILabel *)[self.words objectAtIndex:3] delegate:self timeTaken:kAnimationTime completion:@selector(animation4Stopped)];
+}
+
+-(void)animation4Stopped
+{
+    [CommonMethods labelAnimateEaseIn:(UILabel *)[self.words objectAtIndex:4] delegate:self timeTaken:kAnimationTime completion:@selector(animation5Stopped)];
+}
+
+-(void)animation5Stopped
+{
+    [CommonMethods labelAnimateEaseIn:(UILabel *)self.menuButton delegate:nil timeTaken:kAnimationTime completion:nil];
+    
+    TLAlertView *alert = [[TLAlertView alloc] initWithTitle:@"Tip:" message:@"Try rotating your device now!" buttonTitle:@"Got it!"];
+    [alert show];
+    
+    [self startMotionUpdates];
+    [self dropTheBass];
+}
+
+-(void)startMotionUpdates
+{
+    motionManager = [[CMMotionManager alloc] init];
+    motionManager.deviceMotionUpdateInterval = 0.01;
+    [motionManager startDeviceMotionUpdatesToQueue:[NSOperationQueue mainQueue] withHandler:^(CMDeviceMotion *motion, NSError *error) {
+        CMAcceleration gravity = motion.gravity;
+        dispatch_async(dispatch_get_main_queue(), ^{
+            self.gravity.gravityDirection = CGVectorMake(gravity.x, -gravity.y);
+        });
+    }];
+}
+
+-(void)dropTheBass
+{
+    self.animator = [[UIDynamicAnimator alloc] initWithReferenceView:self.view];
+    
+    //NSMutableArray *gravityItems;
+    /*for (UILabel *label in self.words) {
+        [gravityItems addObject:label];
+    }*/
+    //[gravityItems addObject:[self.words objectAtIndex:0]];
+    //[gravityItems addObject:self.iAmLabel];
+    
+    NSArray *gravityItems = [NSArray arrayWithObjects:self.iAmLabel,
+                             [self.words objectAtIndex:0],
+                             [self.words objectAtIndex:1],
+                             [self.words objectAtIndex:2],
+                             [self.words objectAtIndex:3],
+                             [self.words objectAtIndex:4],
+                             nil];
+    
+    self.gravity = [[UIGravityBehavior alloc] initWithItems:gravityItems];
+    [self.animator addBehavior:self.gravity];
+    UICollisionBehavior* collisionBehavior = [[UICollisionBehavior alloc] initWithItems:gravityItems];
+    collisionBehavior.translatesReferenceBoundsIntoBoundary = YES;
+    [self.animator addBehavior:collisionBehavior];
+    UIDynamicItemBehavior *elasticityBehavior = [[UIDynamicItemBehavior alloc] initWithItems:gravityItems];
+    elasticityBehavior.elasticity = 0.35f;
+    [self.animator addBehavior:elasticityBehavior];
 }
 
 -(BOOL)prefersStatusBarHidden

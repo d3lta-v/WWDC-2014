@@ -9,6 +9,8 @@
 #import "ViewController.h"
 #import "CommonMethods.h"
 
+#define kAnimationTime 0.75
+
 @interface ViewController ()
 
 @end
@@ -52,17 +54,17 @@
 
 - (void)animationDidStop:(CAAnimation *)theAnimation finished:(BOOL)flag // Animate my name
 {
-    [CommonMethods labelAnimateEaseIn:ziyueLabel delegate:self timeTaken:1 completion:@selector(animation2DidStop:finished:)];
+    [CommonMethods labelAnimateEaseIn:ziyueLabel delegate:self timeTaken:kAnimationTime completion:@selector(animation2DidStop:finished:)];
 }
 
 -(void)animation2DidStop:(CAAnimation *)anim finished:(BOOL)flag // Animate the 'welcome' text
 {
-    [CommonMethods labelAnimateEaseIn:welcomeLabel delegate:self timeTaken:1 completion:@selector(animation3DidStop:finished:)];
+    [CommonMethods labelAnimateEaseIn:welcomeLabel delegate:self timeTaken:kAnimationTime completion:@selector(animation3DidStop:finished:)];
 }
 
 -(void)animation3DidStop:(CAAnimation *)anim finished:(BOOL)flag // animate the 'slide' text
 {
-    [CommonMethods labelAnimateEaseIn:slideLabel delegate:nil timeTaken:0.75 completion:NULL];
+    [CommonMethods labelAnimateEaseIn:slideLabel delegate:nil timeTaken:kAnimationTime completion:NULL];
 }
 
 - (void)didReceiveMemoryWarning
