@@ -10,10 +10,9 @@
 #import "REFrostedViewController.h"
 
 @interface ViewController : UIViewController
-@property (strong, nonatomic) IBOutlet UILabel *hiLabel;
-@property (strong, nonatomic) IBOutlet UILabel *ziyueLabel;
-@property (strong, nonatomic) IBOutlet UILabel *welcomeLabel;
-@property (strong, nonatomic) IBOutlet UILabel *slideLabel;
-- (IBAction)tapToBegin:(id)sender;
+@property (weak, nonatomic) IBOutlet UILabel *hiLabel;
+@property (weak, nonatomic) IBOutlet UILabel *ziyueLabel;
+@property (weak, nonatomic) IBOutlet UILabel *welcomeLabel;
+@property (weak, nonatomic) IBOutlet UILabel *slideLabel;
 
 @end

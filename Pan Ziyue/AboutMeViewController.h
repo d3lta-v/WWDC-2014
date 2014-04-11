@@ -11,8 +11,8 @@
 @interface AboutMeViewController : UIViewController
 
 @property (strong, nonatomic) IBOutletCollection(UILabel) NSArray *words;
-@property (strong, nonatomic) IBOutlet UILabel *iAmLabel;
-@property (strong, nonatomic) IBOutlet UIButton *menuButton;
+@property (weak, nonatomic) IBOutlet UILabel *iAmLabel;
+@property (weak, nonatomic) IBOutlet UIButton *menuButton;
 
 - (IBAction)openMenu:(id)sender;
 

@@ -17,8 +17,6 @@
 
 @implementation ViewController
 
-@synthesize ziyueLabel, hiLabel, welcomeLabel, slideLabel;
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -29,19 +27,29 @@
     group.motionEffects = @[[CommonMethods getInterpolatingMotionEffect:@"center.x" minMaxValues:-10], [CommonMethods getInterpolatingMotionEffect:@"center.y" minMaxValues:-10]];
     
     // Add both effects to your view
-    [hiLabel addMotionEffect:group];
-    [ziyueLabel addMotionEffect:group];
-    [welcomeLabel addMotionEffect:group];
-    [slideLabel addMotionEffect:group];
+    [_hiLabel addMotionEffect:group];
+    [_ziyueLabel addMotionEffect:group];
+    [_welcomeLabel addMotionEffect:group];
+    [_slideLabel addMotionEffect:group];
     
     // Animate 'Hi'
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        ziyueLabel.alpha=0.0f;
-        hiLabel.alpha=0.0f;
-        welcomeLabel.alpha=0.0f;
-        slideLabel.alpha=0.0f;
-        [CommonMethods labelAnimateEaseIn:hiLabel delegate:self timeTaken:1 completion:@selector(animationDidStop:finished:)];
+        _ziyueLabel.alpha=0.0f;
+        _hiLabel.alpha=0.0f;
+        _welcomeLabel.alpha=0.0f;
+        _slideLabel.alpha=0.0f;
+        
+        //[CommonMethods labelAnimateEaseIn:_hiLabel delegate:self timeTaken:1 completion:@selector(animationDidStop:finished:)];
+        
+        // Some nested completion blocks from my CommonMethods class, replacing the previous selector based system
+        [CommonMethods labelAnimateEaseIn:_hiLabel delegate:self timeTaken:1 completionBlock:^(bool finished){
+            [CommonMethods labelAnimateEaseIn:_ziyueLabel delegate:self timeTaken:kAnimationTime completionBlock:^(bool finished){
+                [CommonMethods labelAnimateEaseIn:_welcomeLabel delegate:self timeTaken:kAnimationTime completionBlock:^(bool finished){
+                    [CommonMethods labelAnimateEaseIn:_slideLabel delegate:nil timeTaken:kAnimationTime completion:NULL];
+                }];
+            }];
+        }];
     });
 }
 
@@ -50,31 +58,10 @@
     return YES;
 }
 
-#pragma mark Animation didStop handlers
-
-- (void)animationDidStop:(CAAnimation *)theAnimation finished:(BOOL)flag // Animate my name
-{
-    [CommonMethods labelAnimateEaseIn:ziyueLabel delegate:self timeTaken:kAnimationTime completion:@selector(animation2DidStop:finished:)];
-}
-
--(void)animation2DidStop:(CAAnimation *)anim finished:(BOOL)flag // Animate the 'welcome' text
-{
-    [CommonMethods labelAnimateEaseIn:welcomeLabel delegate:self timeTaken:kAnimationTime completion:@selector(animation3DidStop:finished:)];
-}
-
--(void)animation3DidStop:(CAAnimation *)anim finished:(BOOL)flag // animate the 'slide' text
-{
-    [CommonMethods labelAnimateEaseIn:slideLabel delegate:nil timeTaken:kAnimationTime completion:NULL];
-}
-
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
-- (IBAction)tapToBegin:(id)sender {
-    [self.frostedViewController presentMenuViewController];
 }
 
 @end

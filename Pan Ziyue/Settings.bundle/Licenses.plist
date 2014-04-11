@@ -8,6 +8,22 @@
 			<key>Type</key>
 			<string>PSChildPaneSpecifier</string>
 			<key>Title</key>
+			<string>TLAlertView</string>
+			<key>File</key>
+			<string>TLAlertView</string>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSChildPaneSpecifier</string>
+			<key>Title</key>
+			<string>NJKWebViewProgress</string>
+			<key>File</key>
+			<string>NJKWebViewProgress</string>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSChildPaneSpecifier</string>
+			<key>Title</key>
 			<string>REFrostedViewController</string>
 			<key>File</key>
 			<string>REFrostedViewController</string>

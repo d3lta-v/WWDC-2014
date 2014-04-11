@@ -8,7 +8,7 @@
 
 #import "AboutMeViewController.h"
 #import "CommonMethods.h" // Common methods header for code snippets that are used often
-#import "REFrostedViewController/REFrostedViewController.h"
+#import "REFrostedViewController.h"
 
 #define kAnimationTime 0.65
 
@@ -37,17 +37,17 @@
     for (UILabel *label in self.words) {
         [label addMotionEffect:group];
     }
-    [self.iAmLabel addMotionEffect:group];
+    [_iAmLabel addMotionEffect:group];
     
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         // Animation for the words
-        self.iAmLabel.alpha=0;
-        self.menuButton.alpha=0;
+        _iAmLabel.alpha=0;
+        _menuButton.alpha=0;
         for (UILabel *label in self.words) {
             label.alpha=0;
         }
-        [CommonMethods labelAnimateEaseIn:self.iAmLabel delegate:self timeTaken:kAnimationTime completion:@selector(animationIAmStopped)];
+        [CommonMethods labelAnimateEaseIn:_iAmLabel delegate:self timeTaken:kAnimationTime completion:@selector(animationIAmStopped)];
     });
 }
 
@@ -79,7 +79,7 @@
 
 -(void)animation4Stopped
 {
-    [CommonMethods labelAnimateEaseIn:(UILabel *)self.menuButton delegate:self timeTaken:kAnimationTime completion:nil];
+    [CommonMethods labelAnimateEaseIn:(UILabel *)_menuButton delegate:self timeTaken:kAnimationTime completion:nil];
 }
 
 // Hide status bar

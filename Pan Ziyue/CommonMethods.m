@@ -21,6 +21,14 @@
     [UIView commitAnimations];
 }
 
++(void)labelAnimateEaseIn:(UILabel *)label delegate:(id)delegate timeTaken:(NSTimeInterval)duration completionBlock:(void (^)(bool))block
+{
+    [UIView setAnimationDelegate:delegate];
+    [UIView setAnimationCurve:UIViewAnimationCurveEaseIn];
+    
+    [UIView animateWithDuration:duration animations:^{label.alpha=1;} completion:block];
+}
+
 +(UIInterpolatingMotionEffect *)getInterpolatingMotionEffect:(NSString *)type minMaxValues:(NSInteger)minMaxValues
 {
     UIInterpolatingMotionEffect *motionEffect;

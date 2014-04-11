@@ -9,7 +9,7 @@
 #import "SkillsViewController.h"
 #import "REFrostedViewController.h"
 #import "CommonMethods.h"
-#import "TLAlertView/TLAlertView.h"
+#import "TLAlertView.h"
 #import <CoreMotion/CoreMotion.h>
 
 #define kAnimationTime 0.65
@@ -47,6 +47,7 @@
     });
 }
 
+#pragma mark Animation end
 -(void)animationIAmStopped
 {
     [CommonMethods labelAnimateEaseIn:self.iAmLabel delegate:self timeTaken:kAnimationTime completion:@selector(animation0Stopped)];
@@ -79,15 +80,25 @@
 
 -(void)animation5Stopped
 {
-    [CommonMethods labelAnimateEaseIn:(UILabel *)self.menuButton delegate:nil timeTaken:kAnimationTime completion:nil];
-    
-    TLAlertView *alert = [[TLAlertView alloc] initWithTitle:@"Tip:" message:@"Try rotating your device now!" buttonTitle:@"Got it!"];
-    [alert show];
-    
-    [self startMotionUpdates];
-    [self dropTheBass];
+    [CommonMethods labelAnimateEaseIn:(UILabel *)[self.words objectAtIndex:5] delegate:self timeTaken:kAnimationTime completion:@selector(animation6Stopped)];
 }
 
+-(void)animation6Stopped
+{
+    [CommonMethods labelAnimateEaseIn:(UILabel *)self.menuButton delegate:nil timeTaken:kAnimationTime completion:nil];
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self startMotionUpdates];
+        [self dropTheBass];
+        
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            TLAlertView *alert = [[TLAlertView alloc] initWithTitle:@"Tip:" message:@"Try rotating your device now!" buttonTitle:@"Got it!"];
+            [alert show];
+        });
+    });
+}
+
+#pragma mark Start motion updates
 -(void)startMotionUpdates
 {
     motionManager = [[CMMotionManager alloc] init];
@@ -95,7 +106,7 @@
     [motionManager startDeviceMotionUpdatesToQueue:[NSOperationQueue mainQueue] withHandler:^(CMDeviceMotion *motion, NSError *error) {
         CMAcceleration gravity = motion.gravity;
         dispatch_async(dispatch_get_main_queue(), ^{
-            self.gravity.gravityDirection = CGVectorMake(gravity.x, -gravity.y);
+            self.gravity.gravityDirection = CGVectorMake(gravity.x/6, -gravity.y/6);
         });
     }];
 }
@@ -117,6 +128,7 @@
                              [self.words objectAtIndex:2],
                              [self.words objectAtIndex:3],
                              [self.words objectAtIndex:4],
+                             [self.words objectAtIndex:5],
                              nil];
     
     self.gravity = [[UIGravityBehavior alloc] initWithItems:gravityItems];
@@ -125,7 +137,7 @@
     collisionBehavior.translatesReferenceBoundsIntoBoundary = YES;
     [self.animator addBehavior:collisionBehavior];
     UIDynamicItemBehavior *elasticityBehavior = [[UIDynamicItemBehavior alloc] initWithItems:gravityItems];
-    elasticityBehavior.elasticity = 0.35f;
+    elasticityBehavior.elasticity = 0.5f;
     [self.animator addBehavior:elasticityBehavior];
 }
 
