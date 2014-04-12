@@ -115,13 +115,6 @@
 {
     self.animator = [[UIDynamicAnimator alloc] initWithReferenceView:self.view];
     
-    //NSMutableArray *gravityItems;
-    /*for (UILabel *label in self.words) {
-        [gravityItems addObject:label];
-    }*/
-    //[gravityItems addObject:[self.words objectAtIndex:0]];
-    //[gravityItems addObject:self.iAmLabel];
-    
     NSArray *gravityItems = [NSArray arrayWithObjects:self.iAmLabel,
                              [self.words objectAtIndex:0],
                              [self.words objectAtIndex:1],

@@ -40,8 +40,6 @@
         _welcomeLabel.alpha=0.0f;
         _slideLabel.alpha=0.0f;
         
-        //[CommonMethods labelAnimateEaseIn:_hiLabel delegate:self timeTaken:1 completion:@selector(animationDidStop:finished:)];
-        
         // Some nested completion blocks from my CommonMethods class, replacing the previous selector based system
         [CommonMethods labelAnimateEaseIn:_hiLabel delegate:self timeTaken:1 completionBlock:^(bool finished){
             [CommonMethods labelAnimateEaseIn:_ziyueLabel delegate:self timeTaken:kAnimationTime completionBlock:^(bool finished){
