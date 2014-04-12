@@ -21,7 +21,7 @@
     [UIView commitAnimations];
 }
 
-+(void)labelAnimateEaseIn:(UILabel *)label delegate:(id)delegate timeTaken:(NSTimeInterval)duration completionBlock:(void (^)(bool))block
++(void)labelAnimateEaseIn:(UILabel *)label delegate:(id)delegate timeTaken:(NSTimeInterval)duration completionBlock:(void (^)(BOOL))block
 {
     [UIView setAnimationDelegate:delegate];
     [UIView setAnimationCurve:UIViewAnimationCurveEaseIn];
