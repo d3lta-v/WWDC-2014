@@ -87,11 +87,11 @@
 {
     [CommonMethods labelAnimateEaseIn:(UILabel *)self.menuButton delegate:nil timeTaken:kAnimationTime completion:nil];
     
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [self startMotionUpdates];
         [self dropTheBass];
         
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             TLAlertView *alert = [[TLAlertView alloc] initWithTitle:@"Tip:" message:@"Try rotating your device now!" buttonTitle:@"Got it!"];
             [alert show];
         });
@@ -106,7 +106,7 @@
     [motionManager startDeviceMotionUpdatesToQueue:[NSOperationQueue mainQueue] withHandler:^(CMDeviceMotion *motion, NSError *error) {
         CMAcceleration gravity = motion.gravity;
         dispatch_async(dispatch_get_main_queue(), ^{
-            self.gravity.gravityDirection = CGVectorMake(gravity.x/6, -gravity.y/6);
+            self.gravity.gravityDirection = CGVectorMake(gravity.x, -gravity.y);
         });
     }];
 }

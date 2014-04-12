@@ -48,15 +48,15 @@
         imageView.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
         
         NSMutableArray *images = [[NSMutableArray alloc] init];
-        //NSArray *imageNames = @[@"IMG_5393.jpg", @"IMG_5394.jpg", @"IMG_5396.jpg", @"IMG_5397.jpg", @"IMG_5398.jpg", @"IMG_5399.jpg", @"IMG_5400.jpg", @"IMG_5401.jpg", @"IMG_5402.jpg", @"IMG_5403.jpg", @"IMG_5404.jpg", @"IMG_5405.jpg", @"IMG_5406.jpg", @"IMG_5407.jpg", @"IMG_5408.jpg", @"IMG_5409.jpg", @"IMG_5410.jpg", @"IMG_5411.jpg", @"IMG_5412.jpg", @"IMG_5413.jpg", @"IMG_5414.jpg", @"IMG_5415.jpg", @"IMG_5416.jpg", @"IMG_5417.jpg", @"IMG_5418.jpg", @"IMG_5419.jpg", @"IMG_5420.jpg", @"IMG_5421.jpg", @"IMG_5422.jpg"];
-        
-        NSArray *imageNames = @[@"IMG_5393.jpg", @"IMG_5394.jpg", @"IMG_5396.jpg", @"IMG_5397.jpg", @"IMG_5398.jpg", @"IMG_5399.jpg", @"IMG_5400.jpg", @"IMG_5401.jpg", @"IMG_5402.jpg"];
+        //NSArray *imageNames = @[@"img_5582.jpg", @"img_5587.jpg", @"img_5592.jpg", @"img_5597.jpg", @"img_5602.jpg", @"img_5607.jpg", @"img_5612.jpg", @"img_5617.jpg", @"img_5622.jpg", @"img_5627.jpg", @"img_5632.jpg", @"img_5637.jpg", @"img_5642.jpg", @"img_5647.jpg", @"img_5652.jpg", @"img_5657.jpg", @"img_5662.jpg", @"img_5667.jpg"];
+        NSArray *imageNames = @[@"img_5582.jpg", @"img_5584.jpg", @"img_5587.jpg", @"img_5589.jpg", @"img_5592.jpg", @"img_5594.jpg", @"img_5597.jpg", @"img_5599.jpg", @"img_5602.jpg", @"img_5604.jpg", @"img_5607.jpg", @"img_5609.jpg", @"img_5612.jpg", @"img_5614.jpg", @"img_5617.jpg", @"img_5619.jpg", @"img_5622.jpg", @"img_5624.jpg", @"img_5627.jpg", @"img_5629.jpg", @"img_5632.jpg", @"img_5634.jpg", @"img_5637.jpg", @"img_5639.jpg", @"img_5642.jpg", @"img_5644.jpg", @"img_5647.jpg", @"img_5649.jpg", @"img_5652.jpg", @"img_5654.jpg", @"img_5657.jpg", @"img_5659.jpg", @"img_5662.jpg", @"img_5664.jpg", @"img_5667.jpg", @"img_5669.jpg"];
+        //NSArray *imageNames = @[@"img_5582.jpg"];
         
         for (int i = 0; i < imageNames.count; i++) {
             [images addObject:[UIImage imageNamed:[imageNames objectAtIndex:i]]];
         }
         imageView.animationImages=images;
-        imageView.animationDuration=1.0f;
+        imageView.animationDuration=1.7f;
         
         imageView.layer.masksToBounds = YES;
         imageView.layer.cornerRadius = 50.0;

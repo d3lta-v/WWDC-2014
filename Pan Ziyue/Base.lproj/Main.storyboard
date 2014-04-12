@@ -330,7 +330,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="StatiX Industries" prompt="Title" id="mRN-CG-fvG">
+                    <navigationItem key="navigationItem" title="StatiX Industries" prompt="   " id="mRN-CG-fvG">
                         <barButtonItem key="leftBarButtonItem" title=" Back" id="hAO-7T-TYk">
                             <connections>
                                 <action selector="exitNavigationVC:" destination="zVK-lg-NUq" id="Vue-vi-3lh"/>
