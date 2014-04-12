@@ -13,8 +13,8 @@
 
 @property (weak, nonatomic) IBOutlet UIWebView *mainWebView;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *refreshOrStopButton;
+@property (copy, nonatomic) NSString *urlString;
 
 -(IBAction)exitNavigationVC:(id)sender;
--(IBAction)refreshOrStopAction:(id)sender;
 
 @end

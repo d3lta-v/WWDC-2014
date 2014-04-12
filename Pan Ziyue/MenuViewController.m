@@ -16,6 +16,7 @@
 #import "AboutMeViewController.h"
 #import "SkillsViewController.h"
 #import "CompanyViewController.h"
+#import "EducationViewController.h"
 
 @interface MenuViewController ()
 
@@ -56,7 +57,7 @@
             [images addObject:[UIImage imageNamed:[imageNames objectAtIndex:i]]];
         }
         imageView.animationImages=images;
-        imageView.animationDuration=1.7f;
+        imageView.animationDuration=3.0f;
         
         imageView.layer.masksToBounds = YES;
         imageView.layer.cornerRadius = 50.0;
@@ -159,6 +160,10 @@
             CompanyViewController *companyVC = [self.storyboard instantiateViewControllerWithIdentifier:@"companyViewController"];
             navigationController.viewControllers=@[companyVC];
         }
+        else if (indexPath.row==4) {
+            EducationViewController *educationVC = [self.storyboard instantiateViewControllerWithIdentifier:@"educationViewController"];
+            navigationController.viewControllers=@[educationVC];
+        }
     }
     else if (indexPath.section==1) // My projects section
     {
@@ -203,7 +208,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)sectionIndex
 {
     if (sectionIndex==0) {
-        return 6;
+        return 5;
     }
     else if (sectionIndex==1) {
         return 3;
@@ -225,7 +230,7 @@
     }
     
     if (indexPath.section == 0) {
-        NSArray *titles = @[@"Home", @"Who I am", @"Skills & Experience", @"My Company", @"My Apps", @"My Education"];
+        NSArray *titles = @[@"Home", @"Who I am", @"Skills & Experience", @"My Company", @"My Education"];
         cell.textLabel.text = titles[indexPath.row];
     } else if (indexPath.section == 1) {
         NSArray *titles = @[@"SST Announcer", @"SST Lens", @"HexBT"];

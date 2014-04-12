@@ -9,6 +9,10 @@
 #import "EducationViewController.h"
 #import "CommonMethods.h"
 #import "REFrostedViewController.h"
+#import "WebViewController.h"
+
+#define kAnimationTime 0.55
+#define kShortAnimationTime 0.4
 
 @interface EducationViewController ()
 
@@ -29,6 +33,19 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        // Set all alpha to 0
+        for (UILabel *label in self.words) {
+            label.alpha=0;
+        }
+        _arrowImg.alpha=0;
+        _SSTlogo.alpha=0;
+        _menuButton.alpha=0;
+        
+        [self startAnimation];
+    });
 }
 
 - (void)didReceiveMemoryWarning
@@ -40,6 +57,50 @@
 -(BOOL)prefersStatusBarHidden
 {
     return YES;
+}
+
+- (IBAction)menuPressed:(id)sender {
+    [self.frostedViewController presentMenuViewController];
+}
+
+- (IBAction)logoTapped:(id)sender {
+    [self performSegueWithIdentifier:@"educationToWeb" sender:self];
+}
+
+-(void)startAnimation
+{
+    // Start build in animations
+    [CommonMethods labelAnimateEaseIn:(UILabel *)[self.words objectAtIndex:0] delegate:self timeTaken:kAnimationTime completionBlock:^(BOOL finished){
+        [CommonMethods labelAnimateEaseIn:(UILabel *)_SSTlogo delegate:self timeTaken:kAnimationTime completionBlock:^(BOOL finished){
+            [CommonMethods labelAnimateEaseIn:(UILabel *)[self.words objectAtIndex:1] delegate:self timeTaken:kShortAnimationTime completionBlock:^(BOOL finished){
+                [CommonMethods labelAnimateEaseIn:(UILabel *)[self.words objectAtIndex:2] delegate:self timeTaken:kShortAnimationTime completionBlock:^(BOOL finished){
+                    [CommonMethods labelAnimateEaseIn:(UILabel *)[self.words objectAtIndex:3] delegate:self timeTaken:kShortAnimationTime completionBlock:^(BOOL finished){
+                        [CommonMethods labelAnimateEaseIn:(UILabel *)[self.words objectAtIndex:4] delegate:self timeTaken:kShortAnimationTime completionBlock:^(BOOL finished){
+                            [CommonMethods labelAnimateEaseIn:(UILabel *)[self.words objectAtIndex:5] delegate:self timeTaken:kShortAnimationTime completionBlock:^(BOOL finished){
+                                [CommonMethods labelAnimateEaseIn:(UILabel *)[self.words objectAtIndex:6] delegate:self timeTaken:kShortAnimationTime completion:@selector(startArrowAndLabelAnimation)];
+                            }];
+                        }];
+                    }];
+                }];
+            }];
+        }];
+    }];
+}
+
+-(void)startArrowAndLabelAnimation
+{
+    [CommonMethods labelAnimateEaseIn:(UILabel *)_arrowImg delegate:nil timeTaken:kShortAnimationTime completion:nil];
+    [CommonMethods labelAnimateEaseIn:(UILabel *)[self.words objectAtIndex:7] delegate:nil timeTaken:kShortAnimationTime completion:nil];
+    [CommonMethods labelAnimateEaseIn:(UILabel *)_menuButton delegate:nil timeTaken:kShortAnimationTime completion:nil];
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"educationToWeb"]) {
+        UINavigationController *navController = (UINavigationController *)segue.destinationViewController;
+        WebViewController *newVC = (WebViewController *)navController.topViewController;
+        newVC.urlString = @"http://www.sst.edu.sg";
+    }
 }
 
 @end

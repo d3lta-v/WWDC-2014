@@ -41,9 +41,9 @@
         _slideLabel.alpha=0.0f;
         
         // Some nested completion blocks from my CommonMethods class, replacing the previous selector based system
-        [CommonMethods labelAnimateEaseIn:_hiLabel delegate:self timeTaken:1 completionBlock:^(bool finished){
-            [CommonMethods labelAnimateEaseIn:_ziyueLabel delegate:self timeTaken:kAnimationTime completionBlock:^(bool finished){
-                [CommonMethods labelAnimateEaseIn:_welcomeLabel delegate:self timeTaken:kAnimationTime completionBlock:^(bool finished){
+        [CommonMethods labelAnimateEaseIn:_hiLabel delegate:self timeTaken:1 completionBlock:^(BOOL finished){
+            [CommonMethods labelAnimateEaseIn:_ziyueLabel delegate:self timeTaken:kAnimationTime completionBlock:^(BOOL finished){
+                [CommonMethods labelAnimateEaseIn:_welcomeLabel delegate:self timeTaken:kAnimationTime completionBlock:^(BOOL finished){
                     [CommonMethods labelAnimateEaseIn:_slideLabel delegate:nil timeTaken:kAnimationTime completion:NULL];
                 }];
             }];
