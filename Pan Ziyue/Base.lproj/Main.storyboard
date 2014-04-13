@@ -431,7 +431,6 @@
                                 </state>
                                 <connections>
                                     <action selector="menuPressed:" destination="ECs-7Y-MPh" eventType="touchUpInside" id="Isv-7l-QZY"/>
-                                    <action selector="openMenu:" destination="ILx-Ki-bHT" eventType="touchUpInside" id="aAF-bl-Nd8"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -527,6 +526,13 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="3" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="8-bit music maker" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ew7-uz-1Oo">
+                                <rect key="frame" x="126" y="441" width="187" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="25"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="I am a..." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QE8-iJ-MI9">
                                 <rect key="frame" x="98" y="263" width="124" height="42"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -569,7 +575,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="openMenu:" destination="ILx-Ki-bHT" eventType="touchUpInside" id="hXl-De-rHa"/>
+                                    <action selector="openMenu:" destination="ILx-Ki-bHT" eventType="touchUpInside" id="1A2-b8-uS6"/>
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="maker" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9GC-a1-7ax">
@@ -591,6 +597,7 @@
                         <outletCollection property="words" destination="ZdB-Gw-c6P" id="WP8-Cm-p4O"/>
                         <outletCollection property="words" destination="9GC-a1-7ax" id="Ny1-jO-smp"/>
                         <outletCollection property="words" destination="47n-Ig-lUE" id="fYD-3S-hiN"/>
+                        <outletCollection property="words" destination="Ew7-uz-1Oo" id="jCk-mu-uyc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IQQ-mf-LCV" userLabel="First Responder" sceneMemberID="firstResponder"/>

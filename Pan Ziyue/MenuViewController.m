@@ -22,10 +22,17 @@
 #import "LensViewController.h"
 #import "HexBTViewController.h"
 
+#define IMAGE_USED imageView.image
 
 @interface MenuViewController ()
 {
     CMMotionManager *motionManager;
+    CADisplayLink *motionDisplayLink;
+    float motionLastYaw;
+    
+    UIImageView *imageView;
+    NSArray *imageNames;
+    NSMutableArray *images;
 }
 
 @end
@@ -55,13 +62,11 @@
     self.tableView.tableHeaderView = ({
         UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, 184.0f)];
         
-        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 40, 100, 100)];
+        imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 40, 100, 100)];
         imageView.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
         
-        NSMutableArray *images = [[NSMutableArray alloc] init];
-        //NSArray *imageNames = @[@"img_5582.jpg", @"img_5587.jpg", @"img_5592.jpg", @"img_5597.jpg", @"img_5602.jpg", @"img_5607.jpg", @"img_5612.jpg", @"img_5617.jpg", @"img_5622.jpg", @"img_5627.jpg", @"img_5632.jpg", @"img_5637.jpg", @"img_5642.jpg", @"img_5647.jpg", @"img_5652.jpg", @"img_5657.jpg", @"img_5662.jpg", @"img_5667.jpg"];
-        NSArray *imageNames = @[@"img_5582.jpg", @"img_5584.jpg", @"img_5587.jpg", @"img_5589.jpg", @"img_5592.jpg", @"img_5594.jpg", @"img_5597.jpg", @"img_5599.jpg", @"img_5602.jpg", @"img_5604.jpg", @"img_5607.jpg", @"img_5609.jpg", @"img_5612.jpg", @"img_5614.jpg", @"img_5617.jpg", @"img_5619.jpg", @"img_5622.jpg", @"img_5624.jpg", @"img_5627.jpg", @"img_5629.jpg", @"img_5632.jpg", @"img_5634.jpg", @"img_5637.jpg", @"img_5639.jpg", @"img_5642.jpg", @"img_5644.jpg", @"img_5647.jpg", @"img_5649.jpg", @"img_5652.jpg", @"img_5654.jpg", @"img_5657.jpg", @"img_5659.jpg", @"img_5662.jpg", @"img_5664.jpg", @"img_5667.jpg", @"img_5669.jpg"];
-        //NSArray *imageNames = @[@"img_5582.jpg"];
+        images = [[NSMutableArray alloc] init];
+        imageNames = @[@"img_5582.jpg", @"img_5584.jpg", @"img_5587.jpg", @"img_5589.jpg", @"img_5592.jpg", @"img_5594.jpg", @"img_5597.jpg", @"img_5599.jpg", @"img_5602.jpg", @"img_5604.jpg", @"img_5607.jpg", @"img_5609.jpg", @"img_5612.jpg", @"img_5614.jpg", @"img_5617.jpg", @"img_5619.jpg", @"img_5622.jpg", @"img_5624.jpg", @"img_5627.jpg", @"img_5629.jpg", @"img_5632.jpg", @"img_5634.jpg", @"img_5637.jpg", @"img_5639.jpg", @"img_5642.jpg", @"img_5644.jpg", @"img_5647.jpg", @"img_5649.jpg", @"img_5652.jpg", @"img_5654.jpg", @"img_5657.jpg", @"img_5659.jpg", @"img_5662.jpg", @"img_5664.jpg", @"img_5667.jpg", @"img_5669.jpg"];
         
         for (int i = 0; i < imageNames.count; i++) {
             [images addObject:[UIImage imageNamed:[imageNames objectAtIndex:i]]];
@@ -96,23 +101,77 @@
 -(void)startMotionUpdates
 {
     motionManager = [[CMMotionManager alloc] init];
-    motionManager.deviceMotionUpdateInterval = 5.0 / 60.0;
+    motionManager.deviceMotionUpdateInterval = 0.05;  // 50 Hz
     
-    // UIDevice *device = [UIDevice currentDevice];
+    motionDisplayLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(motionRefresh:)];
+    [motionDisplayLink addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
     
-    [motionManager startDeviceMotionUpdatesUsingReferenceFrame:CMAttitudeReferenceFrameXArbitraryZVertical
-                                                            toQueue:[NSOperationQueue mainQueue]
-                                                        withHandler:^(CMDeviceMotion *motion, NSError *error)
-    {
-        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-            CGFloat x = motion.gravity.x;
-            CGFloat y = motion.gravity.y;
-            CGFloat z = motion.gravity.z;
-            CGFloat r = sqrtf(x*x + y*y + z*z);
-            CGFloat tiltForwardBackward = acosf(z/r) * 180.0f / M_PI - 90.0f;
-            NSLog(@"tilt:%f", tiltForwardBackward);
-        }];
-    }];
+    if ([motionManager isDeviceMotionAvailable]) {
+        // to avoid using more CPU than necessary we use `CMAttitudeReferenceFrameXArbitraryZVertical`
+        [motionManager startDeviceMotionUpdatesUsingReferenceFrame:CMAttitudeReferenceFrameXArbitraryZVertical];
+    }
+}
+
+- (void)motionRefresh:(id)sender {
+    CMQuaternion quat = motionManager.deviceMotion.attitude.quaternion;
+    double yaw = asin(2*(quat.x*quat.z - quat.w*quat.y));
+    
+    if (motionLastYaw == 0) {
+        motionLastYaw = yaw;
+    }
+    
+    // kalman filtering
+    static float q = 0.1;   // process noise
+    static float r = 0.1;   // sensor noise
+    static float p = 0.1;   // estimated error
+    static float k = 0.5;   // kalman filter gain
+    
+    float x = motionLastYaw;
+    p = p + q;
+    k = p / (p + r);
+    x = x + k*(yaw - x);
+    p = (1 - k)*p;
+    motionLastYaw = x;
+    
+    // Note: syntax is (a, (b-a)) where c is a number expected to be between a and b
+    if (x>=0 && x<=0.1) {
+        IMAGE_USED = [images objectAtIndex:35];
+    }
+    else if (x<0 && x>-0.1) {
+        IMAGE_USED = [images objectAtIndex:0];
+    }
+    else if (x>0.1 && x<0.2) {
+        IMAGE_USED = [images objectAtIndex:34];
+    }
+    else if (x<-0.1 && x>-0.2) {
+        IMAGE_USED = [images objectAtIndex:1];
+    }
+    else if (x>0.2 && x<0.3) {
+        IMAGE_USED = [images objectAtIndex:33];
+    }
+    else if (x<-0.2 && x>-0.3) {
+        IMAGE_USED = [images objectAtIndex:2];
+    }
+    else if (x>0.3 && x<0.4) {
+        IMAGE_USED = [images objectAtIndex:32];
+    }
+    else if (x<-0.3 && x>-0.4) {
+        IMAGE_USED = [images objectAtIndex:3];
+    }
+    else if (x>0.4 && x<0.5) {
+        IMAGE_USED = [images objectAtIndex:31];
+    }
+    else if (x<-0.4 && x>-0.5) {
+        IMAGE_USED = [images objectAtIndex:4];
+    }
+    else if (x>0.5 && x<0.6) {
+        IMAGE_USED = [images objectAtIndex:30];
+    }
+    else if (x<-0.5 && x>-0.6) {
+        IMAGE_USED = [images objectAtIndex:5];
+    }
+    
+    NSLog(@"%f", x);
 }
 
 - (void)didReceiveMemoryWarning

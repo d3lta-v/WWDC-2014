@@ -79,6 +79,11 @@ static const float kAnimationTime = 0.5;
 
 -(void)animation4Stopped
 {
+    [CommonMethods labelAnimateEaseIn:(UILabel *)[self.words objectAtIndex:5] delegate:self timeTaken:kAnimationTime completion:@selector(animation5Stopped)];
+}
+
+-(void)animation5Stopped
+{
     [CommonMethods labelAnimateEaseIn:(UILabel *)_menuButton delegate:self timeTaken:kAnimationTime completion:nil];
 }
 
