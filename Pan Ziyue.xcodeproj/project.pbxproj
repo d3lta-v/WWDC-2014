@@ -75,6 +75,9 @@
 		22344B0D18F9371700E21D32 /* AnnouncerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22344B0C18F9371700E21D32 /* AnnouncerViewController.m */; };
 		22344B1018F9372500E21D32 /* LensViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22344B0F18F9372500E21D32 /* LensViewController.m */; };
 		22344B1318F95FA900E21D32 /* HexBTViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22344B1218F95FA900E21D32 /* HexBTViewController.m */; };
+		22344B1518FA8BD000E21D32 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22344B1418FA8BD000E21D32 /* StoreKit.framework */; };
+		22344B1B18FA8DBA00E21D32 /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 22344B1818FA8DBA00E21D32 /* SVProgressHUD.bundle */; };
+		22344B1C18FA8DBA00E21D32 /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 22344B1A18FA8DBA00E21D32 /* SVProgressHUD.m */; };
 		223FF1C718F81428002C56D6 /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 223FF1C618F81428002C56D6 /* WebViewController.m */; };
 		223FF1CD18F81D05002C56D6 /* NJKWebViewProgress.m in Sources */ = {isa = PBXBuildFile; fileRef = 223FF1CA18F81D05002C56D6 /* NJKWebViewProgress.m */; };
 		223FF1CE18F81D05002C56D6 /* NJKWebViewProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 223FF1CC18F81D05002C56D6 /* NJKWebViewProgressView.m */; };
@@ -195,6 +198,11 @@
 		22344B0F18F9372500E21D32 /* LensViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LensViewController.m; sourceTree = "<group>"; };
 		22344B1118F95FA900E21D32 /* HexBTViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HexBTViewController.h; sourceTree = "<group>"; };
 		22344B1218F95FA900E21D32 /* HexBTViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HexBTViewController.m; sourceTree = "<group>"; };
+		22344B1418FA8BD000E21D32 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		22344B1718FA8DBA00E21D32 /* SVProgressHUD-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SVProgressHUD-Prefix.pch"; sourceTree = "<group>"; };
+		22344B1818FA8DBA00E21D32 /* SVProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SVProgressHUD.bundle; sourceTree = "<group>"; };
+		22344B1918FA8DBA00E21D32 /* SVProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVProgressHUD.h; sourceTree = "<group>"; };
+		22344B1A18FA8DBA00E21D32 /* SVProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVProgressHUD.m; sourceTree = "<group>"; };
 		223FF1C518F81428002C56D6 /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
 		223FF1C618F81428002C56D6 /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
 		223FF1C918F81D05002C56D6 /* NJKWebViewProgress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NJKWebViewProgress.h; sourceTree = "<group>"; };
@@ -225,6 +233,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				22344B1518FA8BD000E21D32 /* StoreKit.framework in Frameworks */,
 				228928FD18F6C5E500EE7235 /* CoreMotion.framework in Frameworks */,
 				22FDC17A18F67D9900EE28BC /* MediaPlayer.framework in Frameworks */,
 				22FDC17818F67D3600EE28BC /* AVFoundation.framework in Frameworks */,
@@ -269,6 +278,7 @@
 		2217253918F3A9A9005301D7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				22344B1418FA8BD000E21D32 /* StoreKit.framework */,
 				228928FC18F6C5E500EE7235 /* CoreMotion.framework */,
 				22FDC17918F67D9900EE28BC /* MediaPlayer.framework */,
 				22FDC17718F67D3600EE28BC /* AVFoundation.framework */,
@@ -283,6 +293,7 @@
 		2217254018F3A9A9005301D7 /* Pan Ziyue */ = {
 			isa = PBXGroup;
 			children = (
+				22344B1618FA8DBA00E21D32 /* SVProgressHUD */,
 				22344AC218F90E9700E21D32 /* RotatingHead */,
 				223FF1C818F81D05002C56D6 /* NJKWebViewProgress */,
 				228928FE18F6D73C00EE7235 /* TLAlertView */,
@@ -412,6 +423,17 @@
 			path = "Pan Ziyue/RotatingHead";
 			sourceTree = SOURCE_ROOT;
 		};
+		22344B1618FA8DBA00E21D32 /* SVProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				22344B1718FA8DBA00E21D32 /* SVProgressHUD-Prefix.pch */,
+				22344B1818FA8DBA00E21D32 /* SVProgressHUD.bundle */,
+				22344B1918FA8DBA00E21D32 /* SVProgressHUD.h */,
+				22344B1A18FA8DBA00E21D32 /* SVProgressHUD.m */,
+			);
+			path = SVProgressHUD;
+			sourceTree = "<group>";
+		};
 		223FF1C818F81D05002C56D6 /* NJKWebViewProgress */ = {
 			isa = PBXGroup;
 			children = (
@@ -460,10 +482,10 @@
 		2289291018F78F4C00EE7235 /* Section 1 VCs */ = {
 			isa = PBXGroup;
 			children = (
-				22344B0B18F9371700E21D32 /* AnnouncerViewController.h */,
-				22344B0C18F9371700E21D32 /* AnnouncerViewController.m */,
 				22344B0E18F9372500E21D32 /* LensViewController.h */,
 				22344B0F18F9372500E21D32 /* LensViewController.m */,
+				22344B0B18F9371700E21D32 /* AnnouncerViewController.h */,
+				22344B0C18F9371700E21D32 /* AnnouncerViewController.m */,
 				22344B1118F95FA900E21D32 /* HexBTViewController.h */,
 				22344B1218F95FA900E21D32 /* HexBTViewController.m */,
 			);
@@ -582,6 +604,7 @@
 				22344B0218F90E9700E21D32 /* img_5649.jpg in Resources */,
 				22344AF818F90E9700E21D32 /* img_5624.jpg in Resources */,
 				22344AFF18F90E9700E21D32 /* img_5642.jpg in Resources */,
+				22344B1B18FA8DBA00E21D32 /* SVProgressHUD.bundle in Resources */,
 				22FDC1E818F6919700EE28BC /* IMG_5401.jpg in Resources */,
 				22344B0318F90E9700E21D32 /* img_5652.jpg in Resources */,
 				22344AE718F90E9700E21D32 /* img_5582.jpg in Resources */,
@@ -643,6 +666,7 @@
 				221725D818F4D746005301D7 /* RootViewController.m in Sources */,
 				223FF1CD18F81D05002C56D6 /* NJKWebViewProgress.m in Sources */,
 				221725D318F4CB41005301D7 /* UIImage+REFrostedViewController.m in Sources */,
+				22344B1C18FA8DBA00E21D32 /* SVProgressHUD.m in Sources */,
 				2229D7D218F6656C002A686E /* CommonMethods.m in Sources */,
 				221725E618F5381F005301D7 /* SkillsViewController.m in Sources */,
 				223449E718F8347800E21D32 /* EducationViewController.m in Sources */,
@@ -783,6 +807,7 @@
 				GCC_PREFIX_HEADER = "Pan Ziyue/Pan Ziyue-Prefix.pch";
 				INFOPLIST_FILE = "Pan Ziyue/Pan Ziyue-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "6C370259-E0DE-4940-913A-8D3DFB0CDB03";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -796,6 +821,7 @@
 				GCC_PREFIX_HEADER = "Pan Ziyue/Pan Ziyue-Prefix.pch";
 				INFOPLIST_FILE = "Pan Ziyue/Pan Ziyue-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "0F08A349-DE56-47F2-885C-22B737FB4619";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

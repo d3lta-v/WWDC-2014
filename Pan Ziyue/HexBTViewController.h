@@ -7,7 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <StoreKit/StoreKit.h>
 
-@interface HexBTViewController : UIViewController
+@interface HexBTViewController : UIViewController <SKStoreProductViewControllerDelegate>
+
+@property (weak, nonatomic) IBOutlet UIImageView *hexbtIcon;
+@property (weak, nonatomic) IBOutlet UIButton *menuButton;
+@property (weak, nonatomic) IBOutlet UIButton *appstoreButton;
+@property (strong, nonatomic) IBOutletCollection(UILabel) NSArray *words;
+
+- (IBAction)menuPressed:(id)sender;
+- (IBAction)appstoreButton:(id)sender;
 
 @end

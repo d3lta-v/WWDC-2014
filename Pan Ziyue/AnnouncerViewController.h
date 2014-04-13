@@ -7,7 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <StoreKit/StoreKit.h>
 
-@interface AnnouncerViewController : UIViewController
+@interface AnnouncerViewController : UIViewController <SKStoreProductViewControllerDelegate>
+@property (weak, nonatomic) IBOutlet UIImageView *announcerImg;
+@property (strong, nonatomic) IBOutletCollection(UILabel) NSArray *words;
+@property (weak, nonatomic) IBOutlet UIButton *appstoreButton;
+@property (weak, nonatomic) IBOutlet UIButton *menuButton;
+
+- (IBAction)appstoreTapped:(id)sender;
+- (IBAction)menuPressed:(id)sender;
 
 @end

@@ -7,6 +7,7 @@
 //
 
 #import "CommonMethods.h"
+#import "SVProgressHUD/SVProgressHUD.h"
 
 @implementation CommonMethods
 
@@ -45,6 +46,21 @@
     motionEffect.maximumRelativeValue = @(abs((int)minMaxValues));
     
     return motionEffect;
+}
+
++(void)openAppStoreWithIdentifier:(NSInteger)appStoreIdent withDelegate:(id)delegate
+{
+    [SVProgressHUD showWithStatus:@"Launching App Store..." maskType:SVProgressHUDMaskTypeBlack];
+    
+    SKStoreProductViewController *storeViewController = [[SKStoreProductViewController alloc] init];
+    storeViewController.delegate = delegate;
+    NSDictionary *parameters = @{SKStoreProductParameterITunesItemIdentifier: [NSNumber numberWithInteger:appStoreIdent]};
+    
+    [storeViewController loadProductWithParameters:parameters completionBlock:^(BOOL result, NSError *error) {
+        if (result)
+            [SVProgressHUD dismiss];
+        [delegate presentViewController:storeViewController animated:YES completion:nil];
+    }];
 }
 
 @end

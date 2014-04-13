@@ -135,80 +135,55 @@
     // Note: syntax is (a, (b-a)) where c is a number expected to be between a and b
     if (x>=0 && x<=0.1) {
         IMAGE_USED = [images objectAtIndex:35];
-    }
-    else if (x<0 && x>-0.1) {
+    } else if (x<0 && x>-0.1) {
         IMAGE_USED = [images objectAtIndex:0];
-    }
-    else if (x>0.1 && x<0.2) {
+    } else if (x>0.1 && x<0.2) {
         IMAGE_USED = [images objectAtIndex:34];
-    }
-    else if (x<-0.1 && x>-0.2) {
+    } else if (x<-0.1 && x>-0.2) {
         IMAGE_USED = [images objectAtIndex:1];
-    }
-    else if (x>0.2 && x<0.3) {
+    } else if (x>0.2 && x<0.3) {
         IMAGE_USED = [images objectAtIndex:33];
-    }
-    else if (x<-0.2 && x>-0.3) {
+    } else if (x<-0.2 && x>-0.3) {
         IMAGE_USED = [images objectAtIndex:2];
-    }
-    else if (x>0.3 && x<0.4) {
+    } else if (x>0.3 && x<0.4) {
         IMAGE_USED = [images objectAtIndex:32];
-    }
-    else if (x<-0.3 && x>-0.4) {
+    } else if (x<-0.3 && x>-0.4) {
         IMAGE_USED = [images objectAtIndex:3];
-    }
-    else if (x>0.4 && x<0.5) {
+    } else if (x>0.4 && x<0.5) {
         IMAGE_USED = [images objectAtIndex:31];
-    }
-    else if (x<-0.4 && x>-0.5) {
+    } else if (x<-0.4 && x>-0.5) {
         IMAGE_USED = [images objectAtIndex:4];
-    }
-    else if (x>0.5 && x<0.6) {
+    } else if (x>0.5 && x<0.6) {
         IMAGE_USED = [images objectAtIndex:30];
-    }
-    else if (x<-0.5 && x>-0.6) {
+    } else if (x<-0.5 && x>-0.6) {
         IMAGE_USED = [images objectAtIndex:5];
-    }
-    else if (x>0.6 && x<0.7) {
+    } else if (x>0.6 && x<0.7) {
         IMAGE_USED = [images objectAtIndex:29];
-    }
-    else if (x<-0.6 && x>-0.7) {
+    } else if (x<-0.6 && x>-0.7) {
         IMAGE_USED = [images objectAtIndex:6];
-    }
-    else if (x>0.7 && x<0.8) {
+    } else if (x>0.7 && x<0.8) {
         IMAGE_USED = [images objectAtIndex:28];
-    }
-    else if (x<-0.7 && x>-0.8) {
+    } else if (x<-0.7 && x>-0.8) {
         IMAGE_USED = [images objectAtIndex:7];
-    }
-    else if (x>0.8 && x<0.9) {
+    } else if (x>0.8 && x<0.9) {
         IMAGE_USED = [images objectAtIndex:27];
-    }
-    else if (x<-0.8 && x>-0.9) {
+    } else if (x<-0.8 && x>-0.9) {
         IMAGE_USED = [images objectAtIndex:8];
-    }
-    else if (x>0.9 && x<1.0) {
+    } else if (x>0.9 && x<1.0) {
         IMAGE_USED = [images objectAtIndex:26];
-    }
-    else if (x<-0.9 && x>-1.0) {
+    } else if (x<-0.9 && x>-1.0) {
         IMAGE_USED = [images objectAtIndex:9];
-    }
-    else if (x>1.0 && x<1.1) {
+    } else if (x>1.0 && x<1.1) {
         IMAGE_USED = [images objectAtIndex:25];
-    }
-    else if (x<-1.0 && x>-1.1) {
+    } else if (x<-1.0 && x>-1.1) {
         IMAGE_USED = [images objectAtIndex:10];
-    }
-    else if (x>1.1 && x<1.2) {
+    } else if (x>1.1 && x<1.2) {
         IMAGE_USED = [images objectAtIndex:24];
-    }
-    else if (x<-1.1 && x>-1.2) {
+    } else if (x<-1.1 && x>-1.2) {
         IMAGE_USED = [images objectAtIndex:11];
-    }
-    else if (x>1.2 && x<1.3) {
+    } else if (x>1.2 && x<1.3) {
         IMAGE_USED = [images objectAtIndex:23];
-    }
-    else if (x<-1.2 && x>-1.3) {
+    } else if (x<-1.2 && x>-1.3) {
         IMAGE_USED = [images objectAtIndex:12];
     }
 }
@@ -298,13 +273,13 @@
     }
     else if (indexPath.section==1) // My projects section
     {
-        if (indexPath.row==0) { // Announcer
-            AnnouncerViewController *announcerVC = [self.storyboard instantiateViewControllerWithIdentifier:@"announcerViewController"];
-            navigationController.viewControllers=@[announcerVC];
-        }
-        else if (indexPath.row==1) { // Lens
+        if (indexPath.row==0) { // Lens
             LensViewController *lensVC = [self.storyboard instantiateViewControllerWithIdentifier:@"lensViewController"];
             navigationController.viewControllers=@[lensVC];
+        }
+        else if (indexPath.row==1) { // Announcer
+            AnnouncerViewController *announcerVC = [self.storyboard instantiateViewControllerWithIdentifier:@"announcerViewController"];
+            navigationController.viewControllers=@[announcerVC];
         }
         else if (indexPath.row==2) { //HexBT
             HexBTViewController *hexbtViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"hexbtViewController"];
@@ -367,7 +342,7 @@
         NSArray *titles = @[@"Home", @"Who I am", @"Skills & Experience", @"My Company", @"My Education"];
         cell.textLabel.text = titles[indexPath.row];
     } else if (indexPath.section == 1) {
-        NSArray *titles = @[@"SST Announcer", @"SST Lens", @"HexBT"];
+        NSArray *titles = @[@"SST Lens", @"SST Announcer", @"HexBT"];
         cell.textLabel.text = titles[indexPath.row];
     } else if (indexPath.section == 2) {
         NSArray *titles = @[@"Acknowledgements", @"The Makings of this App"];

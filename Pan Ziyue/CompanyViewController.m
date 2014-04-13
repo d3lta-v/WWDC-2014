@@ -7,12 +7,12 @@
 //
 
 #import "CompanyViewController.h"
-#import "REFrostedViewController.h"
+#import "REFrostedViewController/REFrostedViewController.h"
 #import "CommonMethods.h"
 #import "WebViewController.h"
 
-static const float kAnimationTime = 0.5;
-static const float kShorterAnimationTime = 0.4;
+static const float_t kAnimationTime = 0.5;
+static const float_t kShorterAnimationTime = 0.35;
 
 @interface CompanyViewController ()
 
@@ -45,11 +45,17 @@ static const float kShorterAnimationTime = 0.4;
         
         [self startAnimation];
     });
-}
-
--(BOOL)prefersStatusBarHidden
-{
-    return YES;
+    
+    // Add parallax effects
+    UIMotionEffectGroup *group = [UIMotionEffectGroup new];
+    group.motionEffects = @[[CommonMethods getInterpolatingMotionEffect:@"center.x" minMaxValues:-10], [CommonMethods getInterpolatingMotionEffect:@"center.y" minMaxValues:-10]];
+    
+    [_menuButton addMotionEffect:group];
+    [_statixLogo addMotionEffect:group];
+    [_arrowImg addMotionEffect:group];
+    for (UILabel *label in self.words) {
+        [label addMotionEffect:group];
+    }
 }
 
 - (void)didReceiveMemoryWarning

@@ -13,6 +13,7 @@
 @property (strong, nonatomic) IBOutletCollection(UILabel) NSArray *words;
 @property (weak, nonatomic) IBOutlet UIImageView *arrowImg;
 @property (weak, nonatomic) IBOutlet UIButton *menuButton;
+@property (weak, nonatomic) IBOutlet UIButton *statixLogo;
 
 - (IBAction)menuPressed:(id)sender;
 - (IBAction)companyToWeb:(id)sender;

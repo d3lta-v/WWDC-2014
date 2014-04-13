@@ -14,7 +14,7 @@
     #include "TargetConditionals.h"
 #endif
 
-static const float kAnimationTime = 0.7;
+static const float_t kAnimationTime = 0.7;
 
 @interface ViewController ()
 
@@ -26,6 +26,8 @@ static const float kAnimationTime = 0.7;
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    
+    [[UIApplication sharedApplication] setStatusBarHidden:YES];
     
     // Setup parallax effect
     UIMotionEffectGroup *group = [UIMotionEffectGroup new];
@@ -61,11 +63,6 @@ static const float kAnimationTime = 0.7;
             }];
         }];
     });
-}
-
-- (BOOL)prefersStatusBarHidden // Hide the status bar
-{
-    return YES;
 }
 
 - (void)didReceiveMemoryWarning

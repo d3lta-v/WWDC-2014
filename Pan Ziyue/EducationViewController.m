@@ -8,11 +8,11 @@
 
 #import "EducationViewController.h"
 #import "CommonMethods.h"
-#import "REFrostedViewController.h"
+#import "REFrostedViewController/REFrostedViewController.h"
 #import "WebViewController.h"
 
 static const float_t kAnimationTime = 0.5;
-static const float_t kShortAnimationTime = 0.4;
+static const float_t kShortAnimationTime = 0.35;
 
 @interface EducationViewController ()
 
@@ -34,6 +34,17 @@ static const float_t kShortAnimationTime = 0.4;
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    // Add parallax effects
+    UIMotionEffectGroup *group = [UIMotionEffectGroup new];
+    group.motionEffects = @[[CommonMethods getInterpolatingMotionEffect:@"center.x" minMaxValues:-10], [CommonMethods getInterpolatingMotionEffect:@"center.y" minMaxValues:-10]];
+    
+    [_menuButton addMotionEffect:group];
+    [_SSTlogo addMotionEffect:group];
+    [_arrowImg addMotionEffect:group];
+    for (UILabel *label in self.words) {
+        [label addMotionEffect:group];
+    }
+    
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         // Set all alpha to 0
@@ -52,11 +63,6 @@ static const float_t kShortAnimationTime = 0.4;
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
--(BOOL)prefersStatusBarHidden
-{
-    return YES;
 }
 
 - (IBAction)menuPressed:(id)sender {

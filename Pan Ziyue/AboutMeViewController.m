@@ -10,7 +10,7 @@
 #import "CommonMethods.h" // Common methods header for code snippets that are used often
 #import "REFrostedViewController.h"
 
-static const float kAnimationTime = 0.5;
+static const float_t kAnimationTime = 0.5;
 
 @interface AboutMeViewController ()
 
@@ -38,6 +38,7 @@ static const float kAnimationTime = 0.5;
         [label addMotionEffect:group];
     }
     [_iAmLabel addMotionEffect:group];
+    [_menuButton addMotionEffect:group];
     
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
@@ -85,12 +86,6 @@ static const float kAnimationTime = 0.5;
 -(void)animation5Stopped
 {
     [CommonMethods labelAnimateEaseIn:(UILabel *)_menuButton delegate:self timeTaken:kAnimationTime completion:nil];
-}
-
-// Hide status bar
--(BOOL)prefersStatusBarHidden
-{
-    return YES;
 }
 
 - (void)didReceiveMemoryWarning

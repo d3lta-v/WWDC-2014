@@ -36,6 +36,8 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault animated:YES];
+    [[UIApplication sharedApplication] setStatusBarHidden:NO];
     
     errorBool=false;
     
@@ -81,6 +83,7 @@
 
 -(IBAction)exitNavigationVC:(id)sender
 {
+    [[UIApplication sharedApplication] setStatusBarHidden:YES];
     [self.navigationController dismissViewControllerAnimated:YES completion:nil];
 }
 

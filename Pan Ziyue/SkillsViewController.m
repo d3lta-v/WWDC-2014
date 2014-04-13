@@ -7,12 +7,12 @@
 //
 
 #import "SkillsViewController.h"
-#import "REFrostedViewController.h"
+#import "REFrostedViewController/REFrostedViewController.h"
 #import "CommonMethods.h"
-#import "TLAlertView.h"
+#import "TLAlertView/TLAlertView.h"
 #import <CoreMotion/CoreMotion.h>
 
-static const float kAnimationTime = 0.5;
+static const float_t kAnimationTime = 0.45;
 
 @interface SkillsViewController ()
 {
@@ -132,11 +132,6 @@ static const float kAnimationTime = 0.5;
     UIDynamicItemBehavior *elasticityBehavior = [[UIDynamicItemBehavior alloc] initWithItems:gravityItems];
     elasticityBehavior.elasticity = 0.5f;
     [self.animator addBehavior:elasticityBehavior];
-}
-
--(BOOL)prefersStatusBarHidden
-{
-    return YES;
 }
 
 - (void)didReceiveMemoryWarning
