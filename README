@@ -1,0 +1,23 @@
+Turn on word wrap if you want to read this
+
+If you happen to be an Apple employee/judge/evaluator or whoever's looking through this app and happened to stumble upon this line of text, firstly, thank you so much for evaluating this app. This is a short life story of mine and I do hope that you would read it.
+
+It has been a dream for me to one day visit Apple, a dream that stemmed from the time when I got my iPhone 4 back in around 2010. From then on I've dreamt about getting to Silicon Valley and one day, meeting the masterminds behind the ingenius devices. My thirst for programming in the UNIX world also came when I got my iPhone.
+
+It was not until 2012 when I started programming. However, 2013 was when I got really started. 2013 was the year I kicked it all off. I worked at a startup I co-founded, StatiX Industries, and started making apps for my school, School of Science and Technology Singapore. From then, I started SST Lens, my first app. To confess, not a very well made one, but at least I was onto something.
+
+Then, SST Announcer, an app tasked to me by the school, since students never read the emails the teachers send out. SST Announcer was a push notification centric app that delivered announcements from teachers directly to students. My programming knowledge improved greatly. Not only I was able to juggle with grand central dispatch (to prevent UI update lags), but also to write whole server REST backends for parsing text so that users can 'read cleanly' from the app.
+
+HexBT, in my iOS app career, is a minor one, but what seperated it from the two apps abovementioned is that it is the first one targeted at the public. The first app to target the world. The app was simple. Convert from ASCII characters to binary, hexadecimal, Base64 and back.
+
+It is an insane honour to be able to attend WWDC. Attending WWDC is, personally to me, one of my life's milestones, so to speak. I consider WWDC as one of the most prestigious tech events I can ever attend, and it is my utmost honour if I have the chance to attend it. Last year, my school planned a trip to San Francisco for those doing well under their ICT Talent Development Program. My company and I wrote 3 apps, but everybody was ultimately denied due to budget cuts. This is my only shot at going to San Francisco in my Secondary school life.
+
+This app was started on April 8th 2014, and I'm submitting it right now, April 13th 2014 2323 hours Singapore Standard Time. This app really took me a lot of time, and once again, thank you for reading this.
+
+P.S. This project originally contained Git source control, and I've commited all my changes via Git. If you want to download the full project (more than 50MB, which is the upload limit, download it from https://statixind.net/downloads/personal/PanZiyue.zip.
+
+----------
+Thank you.
+
+Ziyue out.
+April 13th 2014
