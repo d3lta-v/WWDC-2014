@@ -101,13 +101,12 @@
 -(void)startMotionUpdates
 {
     motionManager = [[CMMotionManager alloc] init];
-    motionManager.deviceMotionUpdateInterval = 0.05;  // 50 Hz
+    motionManager.deviceMotionUpdateInterval = 0.05;  // 20 Hz
     
     motionDisplayLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(motionRefresh:)];
     [motionDisplayLink addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
     
     if ([motionManager isDeviceMotionAvailable]) {
-        // to avoid using more CPU than necessary we use `CMAttitudeReferenceFrameXArbitraryZVertical`
         [motionManager startDeviceMotionUpdatesUsingReferenceFrame:CMAttitudeReferenceFrameXArbitraryZVertical];
     }
 }
@@ -169,6 +168,48 @@
     }
     else if (x<-0.5 && x>-0.6) {
         IMAGE_USED = [images objectAtIndex:5];
+    }
+    else if (x>0.6 && x<0.7) {
+        IMAGE_USED = [images objectAtIndex:29];
+    }
+    else if (x<-0.6 && x>-0.7) {
+        IMAGE_USED = [images objectAtIndex:6];
+    }
+    else if (x>0.7 && x<0.8) {
+        IMAGE_USED = [images objectAtIndex:28];
+    }
+    else if (x<-0.7 && x>-0.8) {
+        IMAGE_USED = [images objectAtIndex:7];
+    }
+    else if (x>0.8 && x<0.9) {
+        IMAGE_USED = [images objectAtIndex:27];
+    }
+    else if (x<-0.8 && x>-0.9) {
+        IMAGE_USED = [images objectAtIndex:8];
+    }
+    else if (x>0.9 && x<1.0) {
+        IMAGE_USED = [images objectAtIndex:26];
+    }
+    else if (x<-0.9 && x>-1.0) {
+        IMAGE_USED = [images objectAtIndex:9];
+    }
+    else if (x>1.0 && x<1.1) {
+        IMAGE_USED = [images objectAtIndex:25];
+    }
+    else if (x<-1.0 && x>-1.1) {
+        IMAGE_USED = [images objectAtIndex:10];
+    }
+    else if (x>1.1 && x<1.2) {
+        IMAGE_USED = [images objectAtIndex:24];
+    }
+    else if (x<-1.1 && x>-1.2) {
+        IMAGE_USED = [images objectAtIndex:11];
+    }
+    else if (x>1.2 && x<1.3) {
+        IMAGE_USED = [images objectAtIndex:23];
+    }
+    else if (x<-1.2 && x>-1.3) {
+        IMAGE_USED = [images objectAtIndex:12];
     }
     
     NSLog(@"%f", x);
