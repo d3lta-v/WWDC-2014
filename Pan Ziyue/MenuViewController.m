@@ -211,8 +211,6 @@
     else if (x<-1.2 && x>-1.3) {
         IMAGE_USED = [images objectAtIndex:12];
     }
-    
-    NSLog(@"%f", x);
 }
 
 - (void)didReceiveMemoryWarning
