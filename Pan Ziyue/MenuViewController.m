@@ -9,16 +9,24 @@
 #import "MenuViewController.h"
 #import "UIViewController+REFrostedViewController.h"
 #import "NavigationViewController.h"
-#import <MediaPlayer/MediaPlayer.h>
-
+#import <CoreMotion/CoreMotion.h>
 // Import all other view controllers here
+// Section 0
 #import "ViewController.h"
 #import "AboutMeViewController.h"
 #import "SkillsViewController.h"
 #import "CompanyViewController.h"
 #import "EducationViewController.h"
+// Section 1
+#import "AnnouncerViewController.h"
+#import "LensViewController.h"
+#import "HexBTViewController.h"
+
 
 @interface MenuViewController ()
+{
+    CMMotionManager *motionManager;
+}
 
 @end
 
@@ -36,6 +44,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    [self startMotionUpdates];
     
     self.tableView.separatorColor = [UIColor colorWithRed:150/255.0f green:161/255.0f blue:177/255.0f alpha:1.0f];
     self.tableView.delegate = self;
@@ -56,8 +66,9 @@
         for (int i = 0; i < imageNames.count; i++) {
             [images addObject:[UIImage imageNamed:[imageNames objectAtIndex:i]]];
         }
-        imageView.animationImages=images;
-        imageView.animationDuration=3.0f;
+        //imageView.animationImages=images;
+        //imageView.animationDuration=3.0f;
+        imageView.image = [images objectAtIndex:0];
         
         imageView.layer.masksToBounds = YES;
         imageView.layer.cornerRadius = 50.0;
@@ -80,6 +91,28 @@
         [view addSubview:label];
         view;
     });
+}
+
+-(void)startMotionUpdates
+{
+    motionManager = [[CMMotionManager alloc] init];
+    motionManager.deviceMotionUpdateInterval = 5.0 / 60.0;
+    
+    // UIDevice *device = [UIDevice currentDevice];
+    
+    [motionManager startDeviceMotionUpdatesUsingReferenceFrame:CMAttitudeReferenceFrameXArbitraryZVertical
+                                                            toQueue:[NSOperationQueue mainQueue]
+                                                        withHandler:^(CMDeviceMotion *motion, NSError *error)
+    {
+        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+            CGFloat x = motion.gravity.x;
+            CGFloat y = motion.gravity.y;
+            CGFloat z = motion.gravity.z;
+            CGFloat r = sqrtf(x*x + y*y + z*z);
+            CGFloat tiltForwardBackward = acosf(z/r) * 180.0f / M_PI - 90.0f;
+            NSLog(@"tilt:%f", tiltForwardBackward);
+        }];
+    }];
 }
 
 - (void)didReceiveMemoryWarning
@@ -168,13 +201,16 @@
     else if (indexPath.section==1) // My projects section
     {
         if (indexPath.row==0) { // Announcer
-            
+            AnnouncerViewController *announcerVC = [self.storyboard instantiateViewControllerWithIdentifier:@"announcerViewController"];
+            navigationController.viewControllers=@[announcerVC];
         }
         else if (indexPath.row==1) { // Lens
-            
+            LensViewController *lensVC = [self.storyboard instantiateViewControllerWithIdentifier:@"lensViewController"];
+            navigationController.viewControllers=@[lensVC];
         }
         else if (indexPath.row==2) { //HexBT
-            
+            HexBTViewController *hexbtViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"hexbtViewController"];
+            navigationController.viewControllers=@[hexbtViewController];
         }
     }
     else if (indexPath.section==2) // Credits section

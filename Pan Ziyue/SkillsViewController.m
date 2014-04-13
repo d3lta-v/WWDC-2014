@@ -12,7 +12,7 @@
 #import "TLAlertView.h"
 #import <CoreMotion/CoreMotion.h>
 
-#define kAnimationTime 0.5
+static const float kAnimationTime = 0.5;
 
 @interface SkillsViewController ()
 {

@@ -10,7 +10,7 @@
 #import "CommonMethods.h" // Common methods header for code snippets that are used often
 #import "REFrostedViewController.h"
 
-#define kAnimationTime 0.65
+static const float kAnimationTime = 0.5;
 
 @interface AboutMeViewController ()
 

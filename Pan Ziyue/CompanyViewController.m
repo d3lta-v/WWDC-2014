@@ -11,7 +11,8 @@
 #import "CommonMethods.h"
 #import "WebViewController.h"
 
-#define kAnimationTime 0.5
+static const float kAnimationTime = 0.5;
+static const float kShorterAnimationTime = 0.4;
 
 @interface CompanyViewController ()
 
@@ -46,14 +47,6 @@
     });
 }
 
--(void)animation5Stopped
-{
-    // At this point the last line of text is rolled out
-    [CommonMethods labelAnimateEaseIn:(UILabel *)_menuButton delegate:nil timeTaken:kAnimationTime completion:nil];
-    [CommonMethods labelAnimateEaseIn:(UILabel *)[_words objectAtIndex:6] delegate:nil timeTaken:0.3 completion:nil];
-    [CommonMethods labelAnimateEaseIn:(UILabel *)_arrowImg delegate:nil timeTaken:0.3 completion:nil];
-}
-
 -(BOOL)prefersStatusBarHidden
 {
     return YES;
@@ -73,21 +66,30 @@
     [self performSegueWithIdentifier:@"companyToWeb" sender:self];
 }
 
+#pragma mark Animation methods
 -(void)startAnimation
 {
     [CommonMethods labelAnimateEaseIn:(UILabel *)[_words objectAtIndex:0] delegate:self timeTaken:kAnimationTime completionBlock:^(BOOL finished){
         [CommonMethods labelAnimateEaseIn:(UILabel *)[_words objectAtIndex:1] delegate:self timeTaken:kAnimationTime completionBlock:^(BOOL finished){
-            [CommonMethods labelAnimateEaseIn:(UILabel *)[_words objectAtIndex:2] delegate:self timeTaken:kAnimationTime completionBlock:^(BOOL finished){
-                [CommonMethods labelAnimateEaseIn:(UILabel *)[_words objectAtIndex:3] delegate:self timeTaken:kAnimationTime completionBlock:^(BOOL finished){
-                    [CommonMethods labelAnimateEaseIn:(UILabel *)[_words objectAtIndex:4] delegate:self timeTaken:kAnimationTime completionBlock:^(BOOL finished){
+            [CommonMethods labelAnimateEaseIn:(UILabel *)[_words objectAtIndex:2] delegate:self timeTaken:kShorterAnimationTime completionBlock:^(BOOL finished){
+                [CommonMethods labelAnimateEaseIn:(UILabel *)[_words objectAtIndex:3] delegate:self timeTaken:kShorterAnimationTime completionBlock:^(BOOL finished){
+                    [CommonMethods labelAnimateEaseIn:(UILabel *)[_words objectAtIndex:4] delegate:self timeTaken:kShorterAnimationTime completionBlock:^(BOOL finished){
                         
                         // Roll in the animation for the screen and stuff, I will put it in a seperate method
-                        [CommonMethods labelAnimateEaseIn:(UILabel *)[_words objectAtIndex:5] delegate:self timeTaken:kAnimationTime completion:@selector(animation5Stopped)];
+                        [CommonMethods labelAnimateEaseIn:(UILabel *)[_words objectAtIndex:5] delegate:self timeTaken:kShorterAnimationTime completion:@selector(animation5Stopped)];
                     }];
                 }];
             }];
         }];
     }];
+}
+
+-(void)animation5Stopped
+{
+    // At this point the last line of text is rolled out
+    [CommonMethods labelAnimateEaseIn:(UILabel *)_menuButton delegate:nil timeTaken:kShorterAnimationTime completion:nil];
+    [CommonMethods labelAnimateEaseIn:(UILabel *)[_words objectAtIndex:6] delegate:nil timeTaken:0.3 completion:nil];
+    [CommonMethods labelAnimateEaseIn:(UILabel *)_arrowImg delegate:nil timeTaken:0.3 completion:nil];
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender

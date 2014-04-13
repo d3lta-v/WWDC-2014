@@ -11,8 +11,8 @@
 #import "REFrostedViewController.h"
 #import "WebViewController.h"
 
-#define kAnimationTime 0.55
-#define kShortAnimationTime 0.4
+static const float_t kAnimationTime = 0.5;
+static const float_t kShortAnimationTime = 0.4;
 
 @interface EducationViewController ()
 

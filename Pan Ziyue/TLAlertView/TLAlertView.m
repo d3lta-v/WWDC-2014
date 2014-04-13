@@ -222,7 +222,7 @@ static const CGFloat separatorEachEle   = 10.0f;
     
     // Use UIKit Dynamics to make the alertView appear.
     UISnapBehavior *snapBehaviour = [[UISnapBehavior alloc] initWithItem:self.alertView snapToPoint:keyWindow.center];
-    snapBehaviour.damping = 0.4f;
+    snapBehaviour.damping = 0.45f;
     [self.animator addBehavior:snapBehaviour];
     
 }
