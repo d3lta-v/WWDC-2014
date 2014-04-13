@@ -13,5 +13,6 @@
 @property (strong, nonatomic) IBOutletCollection(UILabel) NSArray *words;
 @property (strong, nonatomic) UIDynamicAnimator *animator;
 @property (strong, nonatomic) UIGravityBehavior *gravity;
+- (IBAction)menuPressed:(id)sender;
 
 @end
