@@ -21,6 +21,8 @@
 #import "AnnouncerViewController.h"
 #import "LensViewController.h"
 #import "HexBTViewController.h"
+// Section 2
+#import "CreditsViewController.h"
 
 #define IMAGE_USED imageView.image
 
@@ -289,10 +291,8 @@
     else if (indexPath.section==2) // Credits section
     {
         if (indexPath.row==0) { // Acknowledgements
-            
-        }
-        else if (indexPath.row==1) { // Makings
-            
+            CreditsViewController *creditsViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"creditsViewController"];
+            navigationController.viewControllers=@[creditsViewController];
         }
     }
     
@@ -322,10 +322,7 @@
     else if (sectionIndex==1) {
         return 3;
     }
-    /*else if (sectionIndex==2) {
-        return 2;
-    }*/
-    return 2;
+    return 1;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -345,7 +342,7 @@
         NSArray *titles = @[@"SST Lens", @"SST Announcer", @"HexBT"];
         cell.textLabel.text = titles[indexPath.row];
     } else if (indexPath.section == 2) {
-        NSArray *titles = @[@"Acknowledgements", @"The Makings of this App"];
+        NSArray *titles = @[@"Acknowledgements"];
         cell.textLabel.text = titles[indexPath.row];
     }
     

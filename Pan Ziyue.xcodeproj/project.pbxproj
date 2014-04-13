@@ -78,13 +78,12 @@
 		22344B1518FA8BD000E21D32 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22344B1418FA8BD000E21D32 /* StoreKit.framework */; };
 		22344B1B18FA8DBA00E21D32 /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 22344B1818FA8DBA00E21D32 /* SVProgressHUD.bundle */; };
 		22344B1C18FA8DBA00E21D32 /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 22344B1A18FA8DBA00E21D32 /* SVProgressHUD.m */; };
+		22344B1F18FAC69A00E21D32 /* CreditsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22344B1E18FAC69A00E21D32 /* CreditsViewController.m */; };
 		223FF1C718F81428002C56D6 /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 223FF1C618F81428002C56D6 /* WebViewController.m */; };
 		223FF1CD18F81D05002C56D6 /* NJKWebViewProgress.m in Sources */ = {isa = PBXBuildFile; fileRef = 223FF1CA18F81D05002C56D6 /* NJKWebViewProgress.m */; };
 		223FF1CE18F81D05002C56D6 /* NJKWebViewProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 223FF1CC18F81D05002C56D6 /* NJKWebViewProgressView.m */; };
 		228928FD18F6C5E500EE7235 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 228928FC18F6C5E500EE7235 /* CoreMotion.framework */; };
 		2289290118F6D76E00EE7235 /* TLAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2289290018F6D76E00EE7235 /* TLAlertView.m */; };
-		22FDC17818F67D3600EE28BC /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22FDC17718F67D3600EE28BC /* AVFoundation.framework */; };
-		22FDC17A18F67D9900EE28BC /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22FDC17918F67D9900EE28BC /* MediaPlayer.framework */; };
 		22FDC1E018F6919700EE28BC /* IMG_5393.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 22FDC1C218F6919700EE28BC /* IMG_5393.jpg */; };
 		22FDC1E118F6919700EE28BC /* IMG_5394.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 22FDC1C318F6919700EE28BC /* IMG_5394.jpg */; };
 		22FDC1E218F6919700EE28BC /* IMG_5395.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 22FDC1C418F6919700EE28BC /* IMG_5395.jpg */; };
@@ -203,6 +202,8 @@
 		22344B1818FA8DBA00E21D32 /* SVProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SVProgressHUD.bundle; sourceTree = "<group>"; };
 		22344B1918FA8DBA00E21D32 /* SVProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVProgressHUD.h; sourceTree = "<group>"; };
 		22344B1A18FA8DBA00E21D32 /* SVProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVProgressHUD.m; sourceTree = "<group>"; };
+		22344B1D18FAC69A00E21D32 /* CreditsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreditsViewController.h; sourceTree = "<group>"; };
+		22344B1E18FAC69A00E21D32 /* CreditsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreditsViewController.m; sourceTree = "<group>"; };
 		223FF1C518F81428002C56D6 /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
 		223FF1C618F81428002C56D6 /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
 		223FF1C918F81D05002C56D6 /* NJKWebViewProgress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NJKWebViewProgress.h; sourceTree = "<group>"; };
@@ -235,8 +236,6 @@
 			files = (
 				22344B1518FA8BD000E21D32 /* StoreKit.framework in Frameworks */,
 				228928FD18F6C5E500EE7235 /* CoreMotion.framework in Frameworks */,
-				22FDC17A18F67D9900EE28BC /* MediaPlayer.framework in Frameworks */,
-				22FDC17818F67D3600EE28BC /* AVFoundation.framework in Frameworks */,
 				2217253D18F3A9A9005301D7 /* CoreGraphics.framework in Frameworks */,
 				2217253F18F3A9A9005301D7 /* UIKit.framework in Frameworks */,
 				2217253B18F3A9A9005301D7 /* Foundation.framework in Frameworks */,
@@ -448,6 +447,8 @@
 		223FF1D018F825F5002C56D6 /* Section 2 VCs */ = {
 			isa = PBXGroup;
 			children = (
+				22344B1D18FAC69A00E21D32 /* CreditsViewController.h */,
+				22344B1E18FAC69A00E21D32 /* CreditsViewController.m */,
 			);
 			name = "Section 2 VCs";
 			sourceTree = "<group>";
@@ -659,6 +660,7 @@
 				22344B1318F95FA900E21D32 /* HexBTViewController.m in Sources */,
 				2289290118F6D76E00EE7235 /* TLAlertView.m in Sources */,
 				22344B1018F9372500E21D32 /* LensViewController.m in Sources */,
+				22344B1F18FAC69A00E21D32 /* CreditsViewController.m in Sources */,
 				221725D518F4CB41005301D7 /* UIViewController+REFrostedViewController.m in Sources */,
 				221725D418F4CB41005301D7 /* UIView+REFrostedViewController.m in Sources */,
 				221725D118F4CB41005301D7 /* REFrostedContainerViewController.m in Sources */,
