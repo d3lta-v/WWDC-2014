@@ -2,7 +2,7 @@
 =================================
 Made by Pan Ziyue from StatiX Industries
 
-![alt text](https://raw.githubusercontent.com/sammy0025/WWDC-2014/master/Assets/iPhoneWWDC.png  "Demo")
+![alt text](Assets/iPhoneWWDC-small.png?raw=true "Demo")
 
 ## Name:
 * Pan Ziyue
